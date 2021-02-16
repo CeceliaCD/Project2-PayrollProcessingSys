@@ -3,9 +3,8 @@ package payrollProcessingSys;
 import java.util.Calendar;
 import java.util.StringTokenizer;
 /**
- * 
- * @author Ceceliachollette-Dickson, Nidaansari
- */
+@author Ceceliachollette-Dickson, Nidaansari
+*/
 
 public class Date implements Comparable<Date> { 
 	private int year;
@@ -159,13 +158,63 @@ public class Date implements Comparable<Date> {
 	compared.
 	@return a string variable of the month, day and year in mm/dd/yyyy format
 	*/
-	public String datetoString() {
+	public String toString() {
 		return  getMonth() + "/" + getDay() + "/" + getYear();
 	}
 
-	
+	//positive if first string is lexico greater, negative if otherwise
 	@Override
 	public int compareTo(Date date) { //return 1, 0, or -1 
-			
+		//get year, then month, then day
+		Date givenDate;
+		
+		int yearComparison = givenDate.toString().getYear().compareTo(date.toString().getYear());
+		int monthComparison = givenDate.toString().getMonth().compareTo(date.toString().getMonth());
+		int dayComparison = givenDate.toString().getDay().compareTo(date.toString().getDay());
+		
+		if(yearComparison == -1 && monthComparison == 0 && dayComparison == 0)  //year is -1
+			return -1;
+		
+		if(yearComparison == 0 && monthComparison == -1 && dayComparison == 0) 
+			return -1;
+		
+		if(yearComparison == 0 && monthComparison == 0 && dayComparison == -1)
+			return -1;
+		
+		if(yearComparison == -1 && monthComparison == -1 && dayComparison == 0) 
+			return -1;
+		
+		if(yearComparison == 0 && monthComparison == -1 && dayComparison == -1) 
+			return -1;
+		
+		if(yearComparison == -1 && monthComparison == 0 && dayComparison == -1)  
+			return -1;
+		
+		if(yearComparison == -1 && monthComparison == -1 && dayComparison == -1) //all -1, first date lesser
+			return -1;
+		
+		if(yearComparison == 1 && monthComparison == 0 && dayComparison == 0) 
+			return 1;
+		
+		if(yearComparison == 0 && monthComparison == 1 && dayComparison == 0)  
+			return 1;
+		
+		if(yearComparison == 0 && monthComparison == 0 && dayComparison == 1)  
+			return 1;
+		
+		if(yearComparison == 1 && monthComparison == 1 && dayComparison == 0)  
+			return 1;
+		
+		if(yearComparison == 0 && monthComparison == 1 && dayComparison == 1)  
+			return 1;
+		
+		if(yearComparison == 1 && monthComparison == 0 && dayComparison == 1) 
+			return 1;
+		
+		if(yearComparison == 1 && monthComparison == 1 && dayComparison == 1) //all 1, first date greater
+			return 1;
+		
+		if(yearComparison == 0 && monthComparison == 0 && dayComparison == 0)  //all 0, dates are equal
+			return 0;
 	} 
 }

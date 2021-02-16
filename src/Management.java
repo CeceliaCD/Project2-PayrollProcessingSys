@@ -1,4 +1,5 @@
 package payrollProcessingSys;
+import java.util.DecimalFormat;
 
 public class Management extends Fulltime {
 
