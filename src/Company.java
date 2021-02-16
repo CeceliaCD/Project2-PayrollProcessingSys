@@ -1,8 +1,16 @@
 package payrollProcessingSys;
-
+/**
+@author Ceceliachollette-Dickson, Nidaansari
+*/
 public class Company {
 	private Employee[] emplist; 
 	private int numEmployee;
+	private int CAPACITY = 4;
+	
+	public Company() { //default constructor to make empty employee system
+		this.emplist = new Employee[CAPACITY];
+		this.numEmployee = 0;
+	}
 	
 	private int find(Employee employee) { }
 	private void grow() { }
