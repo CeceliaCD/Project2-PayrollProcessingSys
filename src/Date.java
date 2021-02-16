@@ -168,9 +168,9 @@ public class Date implements Comparable<Date> {
 		//get year, then month, then day
 		Date givenDate;
 		
-		int yearComparison = givenDate.toString().getYear().compareTo(date.toString().getYear());
-		int monthComparison = givenDate.toString().getMonth().compareTo(date.toString().getMonth());
-		int dayComparison = givenDate.toString().getDay().compareTo(date.toString().getDay());
+		int yearComparison = givenDate.toString(getYear()).compareTo(date.toString(getYear()));
+		int monthComparison = givenDate.toString(getMonth()).compareTo(date.toString(getMonth()));
+		int dayComparison = givenDate.toString(getDay()).compareTo(date.toString(getDay()));
 		
 		//first check year, then check month, then day
 		if(yearComparison == -1 || (yearComparison == -1 && monthComparison == -1) || (yearComparison == -1 && monthComparison == -1 && dayComparison == -1)) 
