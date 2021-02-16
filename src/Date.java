@@ -162,7 +162,7 @@ public class Date implements Comparable<Date> {
 		return  getMonth() + "/" + getDay() + "/" + getYear();
 	}
 
-	//positive if first string is lexico greater, negative if otherwise
+	//positive if first string is lexico greater, negative if otherwise, 0 if equal
 	@Override
 	public int compareTo(Date date) { //return 1, 0, or -1 
 		//get year, then month, then day
@@ -172,49 +172,16 @@ public class Date implements Comparable<Date> {
 		int monthComparison = givenDate.toString().getMonth().compareTo(date.toString().getMonth());
 		int dayComparison = givenDate.toString().getDay().compareTo(date.toString().getDay());
 		
-		if(yearComparison == -1 && monthComparison == 0 && dayComparison == 0)  //year is -1
+		//first check year, then check month, then day
+		if(yearComparison == -1 || (yearComparison == -1 && monthComparison == -1) || (yearComparison == -1 && monthComparison == -1 && dayComparison == -1)) 
 			return -1;
 		
-		if(yearComparison == 0 && monthComparison == -1 && dayComparison == 0) 
-			return -1;
-		
-		if(yearComparison == 0 && monthComparison == 0 && dayComparison == -1)
-			return -1;
-		
-		if(yearComparison == -1 && monthComparison == -1 && dayComparison == 0) 
-			return -1;
-		
-		if(yearComparison == 0 && monthComparison == -1 && dayComparison == -1) 
-			return -1;
-		
-		if(yearComparison == -1 && monthComparison == 0 && dayComparison == -1)  
-			return -1;
-		
-		if(yearComparison == -1 && monthComparison == -1 && dayComparison == -1) //all -1, first date lesser
-			return -1;
-		
-		if(yearComparison == 1 && monthComparison == 0 && dayComparison == 0) 
+		if(yearComparison == 1 || (yearComparison == 1 && monthComparison == 1) || (yearComparison == 1 && monthComparison == 1 && dayComparison == 1)) 
 			return 1;
 		
-		if(yearComparison == 0 && monthComparison == 1 && dayComparison == 0)  
-			return 1;
 		
-		if(yearComparison == 0 && monthComparison == 0 && dayComparison == 1)  
-			return 1;
-		
-		if(yearComparison == 1 && monthComparison == 1 && dayComparison == 0)  
-			return 1;
-		
-		if(yearComparison == 0 && monthComparison == 1 && dayComparison == 1)  
-			return 1;
-		
-		if(yearComparison == 1 && monthComparison == 0 && dayComparison == 1) 
-			return 1;
-		
-		if(yearComparison == 1 && monthComparison == 1 && dayComparison == 1) //all 1, first date greater
-			return 1;
-		
-		if(yearComparison == 0 && monthComparison == 0 && dayComparison == 0)  //all 0, dates are equal
+		if(yearComparison == 0 && monthComparison == 0 && dayComparison == 0) 
 			return 0;
+		
 	} 
 }
