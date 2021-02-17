@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 public class Employee {
 	
 	private Profile empProfile = new Profile(); //profile that uniquely identifies each employee
-	private DecimalFormat PAID = new DecimalFormat("$##,###.##"); //Stores calculated payment, but idk if necessary
+	private DecimalFormat paid = new DecimalFormat("$##,###.##"); //Stores calculated payment, but idk if necessary
 	
 	/**
 	Help intialize employee objects

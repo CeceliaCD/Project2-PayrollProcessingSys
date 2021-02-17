@@ -177,27 +177,22 @@ public class Date implements Comparable<Date> {
 		return  getMonth() + "/" + getDay() + "/" + getYear();
 	}
 
-	//positive if first string is lexico greater, negative if otherwise, 0 if equal
+	/**
+	@param date is the Date type being compared to another date
+    @return 1 if our date is lexicographically greater, -1 if otherwise, 0 if they are equal
+	*/
 	@Override
 	public int compareTo(Date date) { //return 1, 0, or -1 
-		//get year, then month, then day
-		Date givenDate = new Date();
 		int lessThan = -1;
 		
-		int yearComparison = givenDate.toString().compareTo(date.toString());
-		int monthComparison = givenDate.toString().compareTo(date.toString());
-		int dayComparison = givenDate.toString().compareTo(date.toString());
-		
 		//first check year, then check month, then day
-		if(yearComparison == lessThan || (yearComparison == lessThan && monthComparison == lessThan) || (yearComparison == lessThan && monthComparison == lessThan && dayComparison == lessThan)) 
-			return lessThan;
+		if(year < date.year || (year < date.year && month < date.month) || (year < date.year && month < date.month && day < date.day)) 
+			return lessThan; //our date is less than the given date
 		
-		if(yearComparison == 1 || (yearComparison == 1 && monthComparison == 1) || (yearComparison == 1 && monthComparison == 1 && dayComparison == 1)) 
-			return 1;
+		if(year > date.year || (year > date.year && month > date.month) || (year > date.year && month > date.month && day > date.day)) 
+			return 1; //our date is greater than the given date
 		
-		
-		if(yearComparison == 0 && monthComparison == 0 && dayComparison == 0) 
-			return 0;
+		return 0; //they are the same date
 		
 	}
 	
