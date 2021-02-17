@@ -5,24 +5,27 @@ import java.text.DecimalFormat;
 */
 public class Employee {
 	
-	private Profile empProfile = new Profile(); //profile that uniquely identifies each employee
-	private DecimalFormat paid = new DecimalFormat("$##,###.##"); //Stores calculated payment, but idk if necessary
+	private Profile empProfile; //profile that uniquely identifies each employee
+	protected double paid;
+	private  DecimalFormat thePay = new DecimalFormat("##,###.##"); //Stores calculated payment, but idk if necessary
 	
 	/**
 	Help intialize employee objects
 	*/
 	public Employee() {
 		// TODO Auto-generated constructor stub
-		
+		this.empProfile = new Profile();
+		this.paid = 0;
 	}
 	
-	//idk
-	public String getProfile() {
-		return empProfile.toString();
-	}
 	
 	//left as empty method for now
 	public void calculatePayment() {
+		
+	}
+	
+	@Override
+	public String toString() { 
 		
 	}
 

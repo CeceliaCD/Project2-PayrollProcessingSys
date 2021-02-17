@@ -7,28 +7,16 @@ public class Profile {
 	private String department; //department code: CS, ECE, IT
 	private Date dateHired;
 	
-	public String getName() {
+	public String getName() { //setters are not needed since variables are supposed to be immutable
 		return name;
 	}
 	
-	public String getDept() {
+	public String getDept() { //setters are not needed since variables are supposed to be immutable
 		return department;
 	}
 	
-	public Date getDateHired() {
+	public Date getDateHired() { //setters are not needed since variables are supposed to be immutable
 		return dateHired;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public void setDept(String dept) {
-		this.department = dept;
-	}
-	
-	public void setDateHired(Date hired) {
-		this.dateHired = hired;
 	}
 	
 	@Override
