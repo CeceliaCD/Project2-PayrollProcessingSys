@@ -131,12 +131,11 @@ public class Date  {
 			return false; 
 		}else if(day < cal.getMinimum(Calendar.DAY_OF_MONTH) && year < currDate.getYear()) {
 			return false;
-		}else if(year%QUAD == 0 && year%CENT == 0 && year%QUATER == 0) { //leap year
+		}else if(year%QUAD != 0) { //not a leap year
 				
-			if(month == cal.get(Calendar.FEBRUARY+1)) 
+			if(month != cal.get(Calendar.FEBRUARY+1)) 
 			{
-				cal.set(cal.getMaximum(Calendar.DATE), lastDayFebLeap);
-				if(day < cal.getActualMinimum(Calendar.DAY_OF_MONTH) || day > lastDayFebLeap)
+				if(day < cal.getActualMinimum(Calendar.DAY_OF_MONTH) || day > lastDayFeb)
 				{
 					return false;
 				}
@@ -144,26 +143,24 @@ public class Date  {
 			}
 		}else if(year%CENT != 0) { //leap year
 				
-			if(month == cal.get(Calendar.FEBRUARY+1)) 
+			if(month != cal.get(Calendar.FEBRUARY+1)) 
 			{
-				cal.set(cal.getMaximum(Calendar.DATE), lastDayFebLeap);
 				if(day < cal.getActualMinimum(Calendar.DAY_OF_MONTH) || day > lastDayFebLeap) 
 				{
 					return false;
 				}
 						
 			}
-		}else if(year%QUAD != 0 || year%QUATER != 0) { //not a leap year
+		}else if(year%QUATER == 0) { //leap year
 				
-			if(month == cal.get(Calendar.FEBRUARY+1)) 
+			if(month != cal.get(Calendar.FEBRUARY+1)) 
 			{
-				cal.set(cal.getMaximum(Calendar.DATE), lastDayFeb);
-				if(day < cal.getActualMinimum(Calendar.DAY_OF_MONTH) || day > lastDayFeb) 
+				if(day < cal.getActualMinimum(Calendar.DAY_OF_MONTH) || day > lastDayFebLeap) 
 				{
 					return false;
 				}
 						
-			}
+			} 
 		} 
 			
 		return true;	
@@ -208,18 +205,10 @@ public class Date  {
 		Date todaysDate = new Date();
 		System.out.println("This is today's date: " + todaysDate.getMonth() + "/" + todaysDate.getDay() + "/" + todaysDate.getYear());
 		
-		Date date1 = new Date("31/2/2000");
+		Date date1 = new Date("02/0/2000");
 		Boolean bool1 = date1.isValid();
 		if(bool1 == true) {
 			System.out.println(date1.getMonth() + "/" + date1.getDay() + "/" + date1.getYear());
-		}else {
-			System.out.println("Invalid Date!");
-		}
-		
-		Date date = new Date("13/2/2020");
-		Boolean boold = date.isValid();
-		if(boold == true) {
-			System.out.println(date.getMonth() + "/" + date.getDay() + "/" + date.getYear());
 		}else {
 			System.out.println("Invalid Date!");
 		}
@@ -240,7 +229,7 @@ public class Date  {
 			System.out.println("Invalid Date!");
 		}
 		
-		Date date4 = new Date("4/31/2009");
+		Date date4 = new Date("2/29/2008");
 		Boolean bool4 = date4.isValid();
 		if(bool4 == true) {
 			System.out.println(date4.getMonth() + "/" + date4.getDay() + "/" + date4.getYear());
@@ -248,45 +237,6 @@ public class Date  {
 			System.out.println("Invalid Date!");
 		}
 		
-		Date date5 = new Date("3/32/2009");
-		Boolean bool5 = date5.isValid();
-		if(bool5 == true) {
-			System.out.println(date5.getMonth() + "/" + date5.getDay() + "/" + date5.getYear());
-		}else {
-			System.out.println("Invalid Date!");
-		}
-		
-		Date date6 = new Date("3/31/1800");
-		Boolean bool6 = date6.isValid();
-		if(bool6 == true) {
-			System.out.println(date6.getMonth() + "/" + date6.getDay() + "/" + date6.getYear());
-		}else {
-			System.out.println("Invalid Date!");
-		}
-		
-		Date date7 = new Date("10/30/2022");
-		Boolean bool7 = date7.isValid();
-		if(bool7 == true) {
-			System.out.println(date7.getMonth() + "/" + date7.getDay() + "/" + date7.getYear());
-		}else {
-			System.out.println("Invalid Date!");
-		}
-		
-		Date date8 = new Date("3/35/2021");
-		Boolean bool8 = date8.isValid();
-		if(bool8 == true) {
-			System.out.println(date8.getMonth() + "/" + date8.getDay() + "/" + date8.getYear());
-		}else {
-			System.out.println("Invalid Date!");
-		}
-		
-		Date date9 = new Date("11/31/2020");
-		Boolean bool9 = date8.isValid();
-		if(bool9 == true) {
-			System.out.println(date9.getMonth() + "/" + date9.getDay() + "/" + date9.getYear());
-		}else {
-			System.out.println("Invalid Date!");
-		}
 	}
 		
 	}
