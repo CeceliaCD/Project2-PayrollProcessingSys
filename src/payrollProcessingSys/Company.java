@@ -12,7 +12,20 @@ public class Company {
 		this.numEmployee = 0;
 	}
 	
-	private int find(Employee employee) { }
+	private int find(Employee employee) {
+		for (int i = 0; i < emplist.length; i++) 
+		{
+			if (this.emplist[i] == null) 
+			{
+				return -1;
+			}
+			if (emplist[i].getName().equals(employee.getName())) //Not working because still need to finish Employee class
+			{
+				return i;
+			}
+		}
+		return -1;
+	}
 	private void grow() { }
 	public boolean add(Employee employee) { } //check the profile before adding 
 	public boolean remove(Employee employee) { } //maintain the original sequence 

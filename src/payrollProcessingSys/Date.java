@@ -4,8 +4,8 @@ import java.util.StringTokenizer;
 /**
 @author Ceceliachollette-Dickson, Nidaansari
 */
-//implements Comparable<Date>
-public class Date  { 
+
+public class Date implements Comparable<Date> { 
 	private int year;
 	private int month; 
 	private int day;
@@ -178,15 +178,15 @@ public class Date  {
 	}
 
 	//positive if first string is lexico greater, negative if otherwise, 0 if equal
-	/*@Override
+	@Override
 	public int compareTo(Date date) { //return 1, 0, or -1 
 		//get year, then month, then day
-		Date givenDate;
+		Date givenDate = new Date();
 		int lessThan = -1;
 		
-		int yearComparison = givenDate.toString(getYear()).compareTo(date.toString(getYear()));
-		int monthComparison = givenDate.toString(getMonth()).compareTo(date.toString(getMonth()));
-		int dayComparison = givenDate.toString(getDay()).compareTo(date.toString(getDay()));
+		int yearComparison = givenDate.toString().compareTo(date.toString());
+		int monthComparison = givenDate.toString().compareTo(date.toString());
+		int dayComparison = givenDate.toString().compareTo(date.toString());
 		
 		//first check year, then check month, then day
 		if(yearComparison == lessThan || (yearComparison == lessThan && monthComparison == lessThan) || (yearComparison == lessThan && monthComparison == lessThan && dayComparison == lessThan)) 
@@ -199,7 +199,7 @@ public class Date  {
 		if(yearComparison == 0 && monthComparison == 0 && dayComparison == 0) 
 			return 0;
 		
-	}*/
+	}
 	
 	public static void main(String[] args) {
 		Date todaysDate = new Date();
@@ -239,4 +239,4 @@ public class Date  {
 		
 	}
 		
-	}
+}
