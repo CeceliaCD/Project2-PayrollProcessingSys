@@ -22,7 +22,7 @@ public class Profile {
 	@Override
 	public String toString() { 
 		String outputProfile = "";
-		outputProfile = getName() + "::" + getDateHired() + "::"; //+ Payment #.## + "::" + PART TIME/FULL TIME + all other payment stuff
+		outputProfile = getName() + "::" + getDept() + "::" + getDateHired(); //+ Payment #.## + "::" + PART TIME/FULL TIME + all other payment stuff
 		return outputProfile;
 	}
 	
