@@ -18,7 +18,7 @@ public class Fulltime extends Employee {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	//Do I calculate here for employees that don't have managerial roles? -Cecelia
 	@Override
 	public void calculatePayment() {
 		

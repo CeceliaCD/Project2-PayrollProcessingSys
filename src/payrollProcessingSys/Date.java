@@ -30,8 +30,8 @@ public class Date implements Comparable<Date> {
 	
 	/**
 	This constructor returns today’s date and also
-	helps with checking if the given published date of 
-	a book is any later than the current (which shouldn't
+	helps with checking if the given hire date of an
+	employee is any later than the current (which shouldn't
 	be possible).
 	*/
 	public Date() { 
@@ -71,10 +71,8 @@ public class Date implements Comparable<Date> {
 	
 	/**
 	This method is used to help verify that the date given,
-	which is representing when a book was published, is not
-	imaginary/impossible or even older than books published 
-	in 1900.Returns a boolean to indicate if the published 
-	date of a book the user has inputted is valid.
+	which is representing when an employee was hired, is not
+	imaginary/impossible or even older than from 1900.
 	@return boolean true if the date not too old and realistic, false otherwise
 	*/
 	public boolean isValid() { 
@@ -200,7 +198,7 @@ public class Date implements Comparable<Date> {
 		Date todaysDate = new Date();
 		System.out.println("This is today's date: " + todaysDate.getMonth() + "/" + todaysDate.getDay() + "/" + todaysDate.getYear());
 		
-		Date date1 = new Date("02/0/2000");
+		Date date1 = new Date("02/0/2000"); //no such thing as day 0, invalid
 		Boolean bool1 = date1.isValid();
 		if(bool1 == true) {
 			System.out.println(date1.getMonth() + "/" + date1.getDay() + "/" + date1.getYear());
@@ -216,7 +214,7 @@ public class Date implements Comparable<Date> {
 			System.out.println("Invalid Date!");
 		}
 
-		Date date3 = new Date("02/30/2000"); //should print invalid date since 2009 isn't leap year p.s. issue must have to be days check
+		Date date3 = new Date("02/30/2000"); //should print invalid date since no such thinf as Feb 30th
 		Boolean bool3 = date3.isValid();
 		if(bool3 == true) {
 			System.out.println(date3.getMonth() + "/" + date3.getDay() + "/" + date3.getYear());
@@ -224,7 +222,7 @@ public class Date implements Comparable<Date> {
 			System.out.println("Invalid Date!");
 		}
 		
-		Date date4 = new Date("2/29/2008");
+		Date date4 = new Date("2/29/2008"); //was a leap year so should print out
 		Boolean bool4 = date4.isValid();
 		if(bool4 == true) {
 			System.out.println(date4.getMonth() + "/" + date4.getDay() + "/" + date4.getYear());

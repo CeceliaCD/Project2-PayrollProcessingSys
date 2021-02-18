@@ -19,7 +19,7 @@ public class Employee {
 	}
 	
 	
-	//left as empty method for now
+	//left as empty method because superclass but still wondering if should be called abstract
 	public void calculatePayment() {
 		
 	}
