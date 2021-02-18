@@ -23,7 +23,9 @@ public class Parttime extends Employee {
 	}
 	@Override
 	public void calculatePayment() { 
-		
+		//parttimeTotalHrs = new DecimalFormat("##.##");
+		//DecimalFormat payPeriod = new DecimalFormat("##.##");
+		//payPeriod =	hourlyRate * (DecimalFormat)hoursWorked;
 	}
 	@Override
 	public boolean equals(Object obj){
