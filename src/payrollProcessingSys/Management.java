@@ -57,5 +57,15 @@ public class Management extends Fulltime {
 		}
 		
 	}
+	
+	@Override
+	public String toString() { 
+		
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+	}
 
 }

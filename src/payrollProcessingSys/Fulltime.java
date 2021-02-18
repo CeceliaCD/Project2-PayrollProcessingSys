@@ -28,5 +28,10 @@ public class Fulltime extends Employee {
 	public String toString() { 
 		
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+	}
 
 }
