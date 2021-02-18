@@ -26,9 +26,30 @@ public class Company {
 		}
 		return -1;
 	}
-	private void grow() { }
-	public boolean add(Employee employee) { } //check the profile before adding 
-	public boolean remove(Employee employee) { } //maintain the original sequence 
+	private void grow() { 
+		Employee[] temp = new Employee[emplist.length + 4];
+		for (int i = 0; i < emplist.length; i++) {
+			temp[i] = emplist[i];
+		}
+		emplist = temp;
+	}
+	public boolean add(Employee employee) { // need to determine if employee is PT FT or M
+		if (empNums%CAPACITY == 0 && empNums > 1) {
+			grow();
+		}
+	} //check the profile before adding 
+	public boolean remove(Employee employee) { // might have to change
+		int rNum = find(employee);
+		if (rNum == -1) {
+			return false;
+		}
+		for (int i = rNum; i < numEmployee - 1; i++) {
+			emplist[i] = emplist[i + 1];
+		}
+		emplist[numEmployee - 1] = null;
+		numEmployee--;
+		return true;
+	} //maintain the original sequence 
 	public boolean setHours(Employee employee) { } //set working hours for a part time 
 	public void processPayments() { } //process payments for all employees
 	public void print() { } //print earning statements for all employees
