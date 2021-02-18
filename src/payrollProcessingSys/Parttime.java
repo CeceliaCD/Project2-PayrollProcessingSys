@@ -18,5 +18,17 @@ public class Parttime extends Employee {
 	public void calculatePayment() { 
 		
 	}
+	@Override
+	public boolean equals(Object obj){
+		if (obj instanceof Parttime) {
+			return super.equals(obj) && hourlyRate == ((Parttime) obj).hourlyRate;
+		}
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString();
+	}
 
 }
