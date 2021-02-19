@@ -4,17 +4,17 @@ import java.text.DecimalFormat;
 @author Ceceliachollette-Dickson, Nidaansari
 */
 public class Management extends Fulltime {
-	private double managercomp = 5000; //1 additional compensation annually
-	private double deptheadcomp = 9500; //2 aditional compensation annually
-	private double directorcomp = 12000; //3 additional compensation annually
-	private double bonus;
-	private int manager = 1;
-	private int deptHead = 2;
-	private int director = 3;
-	private boolean mnger;
-	private boolean dpthd;
-	private boolean drctr;
-	
+	protected double managercomp = 5000; //1 additional compensation annually
+	protected double deptheadcomp = 9500; //2 aditional compensation annually
+	protected double directorcomp = 12000; //3 additional compensation annually
+	protected double bonus;
+	protected DecimalFormat theBonus = new DecimalFormat("$##,###.##");
+	protected int manager = 1;
+	protected int deptHead = 2;
+	protected int director = 3;
+	protected boolean mnger;
+	protected boolean dpthd;
+	protected boolean drctr;
 	
 	//Right now I don't think these subclass constructors are necessary since there is only employee objects
 	public Management(Profile eProfile, double thePay, double annSalary, double theBonus) {
@@ -27,8 +27,32 @@ public class Management extends Fulltime {
 		return bonus;
 	}
 	
+	public boolean getMnger() { 
+		return mnger;
+	}
 	
-	/**
+	public boolean getDpthd() {
+		return dpthd;
+	}
+	
+	public boolean getDrctr() {
+		return drctr;
+	}
+	
+	public void setMnger(boolean mnger) { 
+		this.mnger = mnger;
+	}
+	
+	public void setDpthd(boolean dpthd) {
+		this.dpthd = dpthd;
+	}
+	
+	public void setDrctr(boolean drctr) {
+		this.drctr = drctr;
+	}
+	
+	
+	/** 
 	According to the given role number, calculates the earning for the pay period
 	*/
 	@Override
@@ -65,9 +89,19 @@ public class Management extends Fulltime {
 		
 	}
 	
+	//Have to make setter and/or getter to convert from double to DecimalFormat for theBonus
+	
 	@Override
 	public String toString() { 
-		return super.toString() + ;
+		String roleOutput = "";
+		if(getMnger() == true) {
+			roleOutput = super.toString() + "::Manager Compensation " + theBonus;
+		}else if(getDpthd() == true) {
+			roleOutput = super.toString() + "::Director Compensation " + theBonus;
+		}else if(getDrctr() == true) {
+			roleOutput = super.toString() + "::DepartmentHead Compensation " + theBonus;
+		}
+		return roleOutput;
 	}
 	
 	@Override
