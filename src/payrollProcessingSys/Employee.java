@@ -5,31 +5,39 @@ import java.text.DecimalFormat;
 */
 public class Employee {
 	
-	private Profile empProfile; //profile that uniquely identifies each employee
+	protected Profile empProfile = new Profile(); //profile that uniquely identifies each employee
 	protected double paid;
-	private  DecimalFormat thePay = new DecimalFormat("$###,###.##"); //Stores calculated payment, but idk if necessary
+	protected DecimalFormat payment = new DecimalFormat("$###,###.##"); //Stores calculated payment, but idk if necessary
 	
 	/**
 	Help intialize employee objects
 	*/
-	public Employee() {
+	public Employee(Profile eProfile, double paidSalary) {
 		// TODO Auto-generated constructor stub
-		this.empProfile = new Profile();
-		this.paid = 0;
+		this.empProfile = eProfile;
+		this.paid = paidSalary;
 	}
 	
 	public void calculatePayment() {
 		
 	}
 	
+	public double getPaid() {
+		return paid;
+	}
+	
+	public Profile getempProfile() {
+		return empProfile;
+	}
+	
+	//Probably have to make setter and/or getter to convert from double to DecimalFormat for thePay
+	
 	/**
 	@return  
 	*/
 	@Override
 	public String toString() { 
-		//if(obj instanceof Fulltime) {
-			
-		//}
+		return empProfile.toString() + "::Payment " + payment;
 	}
 	
 	//Still must check if this is correct, see what more to do
@@ -43,7 +51,7 @@ public class Employee {
 			return false;
 		}
 		Employee objEmployee = (Employee) obj;
-		if (this.empProfile.equals(objEmployee.empProfile) &&  this.thePay.equals(objEmployee.thePay)) {
+		if (this.empProfile.equals(objEmployee.empProfile) &&  this.payment.equals(objEmployee.payment)) {
 			return true;
 		}
 		return false;

@@ -21,9 +21,7 @@ public class Profile {
 	
 	@Override
 	public String toString() { 
-		String outputProfile = "";
-		outputProfile = getName() + "::" + getDept() + "::" + getDateHired(); //+ Payment #.## + "::" + PART TIME/FULL TIME + all other payment stuff
-		return outputProfile;
+		return getName() + "::" + getDept() + "::" + getDateHired().toString();
 	}
 	
 	// DOUBLE CHECK THIS @ NIDA

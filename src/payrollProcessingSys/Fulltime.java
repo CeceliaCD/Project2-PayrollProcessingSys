@@ -7,16 +7,17 @@ public class Fulltime extends Employee {
 	
 	protected int fulltimepayperiods = 26;
 	protected double annualSalary;
-	public DecimalFormat theSalary = new DecimalFormat("#####");
+	protected DecimalFormat theSalary = new DecimalFormat("$##,###.##");
 	
 	public double getAnnualSalary() {
 		return annualSalary;
 	}
 	
 	//Right now I don't think these subclass constructors are necessary since there is only employee objects
-	public Fulltime() {
+	public Fulltime(Profile eProfile, double thePay, double annSalary) {
 		// TODO Auto-generated constructor stub
-		super();
+		super(eProfile, thePay);
+		this.annualSalary = annSalary;
 	}
 	
 	//Do I calculate here for employees that don't have managerial roles? -Cecelia
@@ -25,9 +26,11 @@ public class Fulltime extends Employee {
 		 super.paid = annualSalary/fulltimepayperiods;
 	}
 	
+	//Probably have to make setter and/or getter to convert from double to DecimalFormat for theSalary
+	
 	@Override
-	public String toString() { 
-		return super.toString();
+	public String toString() {
+		return super.toString() + "::FULL TIME::Annual Salary " + theSalary;
 	}
 	
 	@Override

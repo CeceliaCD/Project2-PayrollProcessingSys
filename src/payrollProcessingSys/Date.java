@@ -171,6 +171,7 @@ public class Date implements Comparable<Date> {
 	compared.
 	@return a string variable of the month, day and year in mm/dd/yyyy format
 	*/
+	
 	public String toString() {
 		return  getMonth() + "/" + getDay() + "/" + getYear();
 	}
