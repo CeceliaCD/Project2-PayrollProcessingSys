@@ -5,9 +5,9 @@ import java.text.DecimalFormat;
 */
 public class Fulltime extends Employee {
 	
-	protected int fulltimepayperiods = 26;
-	protected double annualSalary;
-	protected DecimalFormat theSalary = new DecimalFormat("$##,###.##");
+	private int fulltimepayperiods = 26;
+	private double annualSalary;
+	private DecimalFormat theSalary = new DecimalFormat("$##,###.##");
 	
 	public double getAnnualSalary() {
 		return annualSalary;

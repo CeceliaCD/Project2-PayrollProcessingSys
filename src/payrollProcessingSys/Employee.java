@@ -5,9 +5,9 @@ import java.text.DecimalFormat;
 */
 public class Employee {
 	
-	protected Profile empProfile = new Profile(); //profile that uniquely identifies each employee
-	protected double paid;
-	protected DecimalFormat payment = new DecimalFormat("$###,###.##"); //Stores calculated payment, but idk if necessary
+	private Profile empProfile = new Profile(); //profile that uniquely identifies each employee
+	private double paid;
+	private DecimalFormat payment = new DecimalFormat("$###,###.##"); //Stores calculated payment, but idk if necessary
 	
 	/**
 	Help intialize employee objects

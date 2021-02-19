@@ -4,17 +4,17 @@ import java.text.DecimalFormat;
 @author Ceceliachollette-Dickson, Nidaansari
 */
 public class Management extends Fulltime {
-	protected double managercomp = 5000; //1 additional compensation annually
-	protected double deptheadcomp = 9500; //2 aditional compensation annually
-	protected double directorcomp = 12000; //3 additional compensation annually
-	protected double bonus;
-	protected DecimalFormat theBonus = new DecimalFormat("$##,###.##");
-	protected int manager = 1;
-	protected int deptHead = 2;
-	protected int director = 3;
-	protected boolean mnger;
-	protected boolean dpthd;
-	protected boolean drctr;
+	private double managercomp = 5000; //1 additional compensation annually
+	private double deptheadcomp = 9500; //2 aditional compensation annually
+	private double directorcomp = 12000; //3 additional compensation annually
+	private double bonus;
+	private DecimalFormat theBonus = new DecimalFormat("$##,###.##");
+	private int manager = 1;
+	private int deptHead = 2;
+	private int director = 3;
+	private boolean mnger;
+	private boolean dpthd;
+	private boolean drctr;
 	
 	//Right now I don't think these subclass constructors are necessary since there is only employee objects
 	public Management(Profile eProfile, double thePay, double annSalary, double theBonus) {

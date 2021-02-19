@@ -5,16 +5,19 @@ import java.text.DecimalFormat;
 */
 public class Parttime extends Employee {
 	
-	private int parttimeTotalHrs = 80; //The 2 week pay period
-	public DecimalFormat hourlyRate = new DecimalFormat("##.##"); //Whatever parttimer is paid per hour
-	public double hrlyRate;
-	public static final double OVERTIME = 1.5; //Represents time and a half regular hourly for more than 80 hours
+	private DecimalFormat hourlyRate = new DecimalFormat("$##.##"); //Whatever parttimer is paid per hour
+	private double hrlyRate;
+	private static final double OVERTIME = 1.5; //Represents time and a half regular hourly for more than 80 hours
 	private int hoursWorked; // hours that a parttimer worked; does this need to be an int?
+	private int parttimeTotalHrs = 80; //The 2 week pay period
+	private int hoursLimit = 100; //hours worked cannot exceed 100 hours per week
 	
 	//Right now I don't think these subclass constructors are necessary since there is only employee objects
-	public Parttime() {
+	public Parttime(Profile eProfile, double paidSalary, double hrlyRate, int hrsWorked) {
 		// TODO Auto-generated constructor stub
-		super();
+		super(eProfile, paidSalary);
+		this.hrlyRate = hrlyRate;
+		this.hoursWorked = hrsWorked;
 	}
 	public void setHourlyRate(DecimalFormat rate) {
 		this.hourlyRate = rate;
@@ -28,8 +31,15 @@ public class Parttime extends Employee {
 		//parttimeTotalHrs = new DecimalFormat("##.##");
 		//DecimalFormat payPeriod = new DecimalFormat("##.##");
 		//payPeriod =	hourlyRate * (DecimalFormat)hoursWorked;
-		double pay = hrlyRate * hoursWorked;
-		String payPeriod = new DecimalFormat("##.##").format(pay);
+		if(hoursWorked <= parttimeTotalHrs) {
+			super.paid = hrlyRate * hoursWorked;
+			String payPeriod = new DecimalFormat("##.##").format(super.paid);
+		}else if(hoursWorked <= hoursLimit) {
+			int overtimeDiff = hoursWorked - parttimeTotalHrs;
+			super.paid = (hrlyRate * parttimeTotalHrs) + (OVERTIME * overtimeDiff);
+			String payPeriod = new DecimalFormat("##.##").format(super.paid);
+		}
+		
 	}
 	@Override
 	public boolean equals(Object obj){
