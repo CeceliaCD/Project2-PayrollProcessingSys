@@ -37,7 +37,7 @@ public class Profile {
 		}
 		Profile objProfile = (Profile) obj;
 		if (this.name.equals(objProfile.name) && 
-				this.name.equals(objProfile.department) && this.name.equals(objProfile.dateHired)) {
+				this.department.equals(objProfile.department) && this.dateHired.equals(objProfile.dateHired)) {
 			return true;
 		}
 		return false;

@@ -12,6 +12,7 @@ public class Management extends Fulltime {
 	//Right now I don't think these subclass constructors are necessary since there is only employee objects
 	public Management() {
 		// TODO Auto-generated constructor stub
+		super();
 	}
 	
 	public double getAddCompforPeriod() {
@@ -60,12 +61,15 @@ public class Management extends Fulltime {
 	
 	@Override
 	public String toString() { 
-		
+		return super.toString();
 	}
 	
 	@Override
 	public boolean equals(Object obj) {
-		
+		if (obj instanceof Management) {
+			return super.equals(obj) && getAddCompforPeriod() == ((Management) obj).getAddCompforPeriod();
+		}
+		return false;
 	}
 
 }

@@ -18,20 +18,35 @@ public class Employee {
 		this.paid = 0;
 	}
 	
-	
-	//left as empty method because superclass but still wondering if should be called abstract
 	public void calculatePayment() {
 		
 	}
 	
+	/**
+	@return  
+	*/
 	@Override
 	public String toString() { 
-		
+		//if(obj instanceof Fulltime) {
+			
+		//}
 	}
 	
+	//Still must check if this is correct, see what more to do
+	//probably have to check for subclasses
 	@Override
 	public boolean equals(Object obj) {
-		
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof Employee)) {
+			return false;
+		}
+		Employee objEmployee = (Employee) obj;
+		if (this.empProfile.equals(objEmployee.empProfile) &&  this.thePay.equals(objEmployee.thePay)) {
+			return true;
+		}
+		return false;
 	}
 
 }
