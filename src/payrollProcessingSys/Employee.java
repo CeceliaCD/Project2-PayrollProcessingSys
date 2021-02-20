@@ -50,7 +50,17 @@ public class Employee {
 	//
 	@Override
 	public boolean equals(Object obj) {
-		
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof Employee)) {
+			return false;
+		}
+		Employee objEmp = (Employee) obj;
+		if (this.empProfile.equals(objEmp.empProfile)) {
+			return true;
+		}
+		return false;
 	}
 
 }
