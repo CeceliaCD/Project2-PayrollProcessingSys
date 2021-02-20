@@ -53,12 +53,15 @@ public class Company {
 		numEmployee--;
 		return true;
 	} //maintain the original sequence 
+	
 	public boolean setHours(Employee employee) { //set working hours for a part time 
 		
 	} 
+	
 	public void processPayments() { //process payments for all employees
 		
 	} 
+	
 	public void print() { //print earning statements for all employees
 		if(numEmployee != 0) {
 			System.out.println("--Printing earning statements for all employees--");
@@ -75,7 +78,49 @@ public class Company {
 	} 
 	
 	public void printByDepartment() { //print earning statements by department 
-		
+		if(numEmployee != 0) {
+			Employee tempEmpDept;
+			
+			for(int i=0; i < emplist.length; i++)
+			{
+				for(int j=i+1; j < emplist.length; j++)
+				{
+					if(emplist[i] != null && emplist[j] != null) //helps with null elements
+					{ 
+						String dept1 = emplist[i].getempProfile().getDept();
+						String dept2 = emplist[j].getempProfile().getDept();
+						if(dept1.compareTo(dept2) > 0) 
+						{
+							tempEmpDept = emplist[i];
+							emplist[i] = emplist[j];
+							emplist[j] = tempEmpDept;	
+						}else if(dept1.compareTo(dept2) == 0) {
+							String tempEmpName1 = emplist[i].getempProfile().getName();
+							String tempEmpName2 = emplist[j].getempProfile().getName();
+							if(tempEmpName1.compareTo(tempEmpName2) > 0) {
+								Employee temp =  emplist[i];
+								emplist[i] = emplist[j];
+								emplist[j] = temp;
+							}
+						}
+					}else if(emplist[i] == null && emplist[j] != null) {
+						emplist[i] = emplist[j];
+					}else if(emplist[i] != null && emplist[j] == null) {
+						continue;
+					}
+				}
+			}
+			
+			System.out.println("--Printing earning statements by department--");
+			for(int k=0; k < emplist.length; k++) {
+				if (emplist[k] != null) 
+				{
+					System.out.println(emplist[k]);
+				}	
+			}	
+		}else {
+			System.out.println("Employee database is empty.");
+		}
 	} 
 	
 	public void printByDate() { //print earning statements by date hired
@@ -93,7 +138,6 @@ public class Company {
 						
 						if(dateHired1.compareTo(dateHired2) == 1) 
 						{
-							
 								tempEmployee = emplist[i];
 								emplist[i] = emplist[j];
 								emplist[j] = tempEmployee;
@@ -129,7 +173,6 @@ public class Company {
 				{
 					System.out.println(emplist[j]);
 				}
-				
 			}
 		}else {
 			System.out.println("Employee database is empty.");

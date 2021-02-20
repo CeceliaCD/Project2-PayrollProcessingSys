@@ -25,8 +25,8 @@ public class Parttime extends Employee {
 		
 	}
 	
-	public void setHourlyRate(String rate) {
-		this.hourlyRate = rate;
+	public void setHourlyRate(double rate) {
+		this.hourlyRate = Double.toString(rate);
 	}
 	
 	public void setHoursWorked(int hours) {
