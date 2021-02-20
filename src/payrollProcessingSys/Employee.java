@@ -17,13 +17,13 @@ public class Employee {
 		this.paid = paidSalary;
 	}
 	
-	@Override
-	public void calculatePayment() {
-		
-	}
-	
 	public double getPaid() {
 		return paid;
+	}
+	
+	public String getDollarValue() {
+		String dollarValue = "";
+		return dollarValue = new DecimalFormat("$###,###.##").format(paid);
 	}
 	
 	public void setPaid(double paid) {
@@ -33,32 +33,24 @@ public class Employee {
 	public Profile getempProfile() {
 		return empProfile;
 	}
+	@Override
+	public void calculatePayment() {
+		
+	}
 	
-	//Probably have to make setter and/or getter to convert from double to DecimalFormat for thePay
 	
 	/**
 	@return  
 	*/
 	@Override
 	public String toString() { 
-		return empProfile.toString() + "::Payment " + getdollarValue();
+		return empProfile.toString() + "::Payment " + getDollarValue();
 	}
 	
-	//Still must check if this is correct, see what more to do
-	//probably have to check for subclasses
+	//
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!(obj instanceof Employee)) {
-			return false;
-		}
-		Employee objEmployee = (Employee) obj;
-		if (this.empProfile.equals(objEmployee.empProfile) &&  this.paid.equals(objEmployee.paid)) {
-			return true;
-		}
-		return false;
+		
 	}
 
 }

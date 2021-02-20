@@ -7,10 +7,14 @@ public class Fulltime extends Employee {
 	
 	private int fulltimepayperiods = 26;
 	private double annualSalary;
-	private DecimalFormat theSalary = new DecimalFormat("$##,###.##");
 	
 	public double getAnnualSalary() {
 		return annualSalary;
+	}
+	
+	public String getAnnSalary() {
+		String yearlySal = "";
+		return yearlySal = new DecimalFormat("$###,###.##").format(annualSalary);
 	}
 	
 	public int getFTPayPeriods() {
@@ -30,13 +34,6 @@ public class Fulltime extends Employee {
 		double thePay = super.getPaid();
 		thePay = annualSalary/fulltimepayperiods;
 	}
-	
-	public String getAnnSalary() {
-		String dollarVal = "";
-		return dollarVal = new DecimalFormat("$###,###.##").format(annualSalary);
-	}
-	
-	//Probably have to make setter and/or getter to convert from double to DecimalFormat for theSalary
 	
 	@Override
 	public String toString() {

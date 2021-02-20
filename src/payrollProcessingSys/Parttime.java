@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 */
 public class Parttime extends Employee {
 	
-	private DecimalFormat hourlyRate = new DecimalFormat("$##.##"); //Whatever parttimer is paid per hour
+	private String hourlyRate = "";
 	private double hrlyRate;
 	private static final double OVERTIME = 1.5; //Represents time and a half regular hourly for more than 80 hours
 	private int hoursWorked; // hours that a parttimer worked; does this need to be an int?
@@ -20,7 +20,12 @@ public class Parttime extends Employee {
 		this.hoursWorked = hrsWorked;
 	}
 	
-	public void setHourlyRate(DecimalFormat rate) {
+	public String getHourlyRate() {
+		return hourlyRate = new DecimalFormat("$##.##").format(hrlyRate);
+		
+	}
+	
+	public void setHourlyRate(String rate) {
 		this.hourlyRate = rate;
 	}
 	
@@ -47,7 +52,7 @@ public class Parttime extends Employee {
 	
 	@Override
 	public String toString() {
-		return super.toString() + "::PART TIME::Hourly Rate " + hourlyRate + "::Hours worked this period: " + Integer.toString(hoursWorked);
+		return super.toString() + "::PART TIME::Hourly Rate " + getHourlyRate() + "::Hours worked this period: " + Integer.toString(hoursWorked);
 	}
 	
 	@Override

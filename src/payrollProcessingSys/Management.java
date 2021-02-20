@@ -94,8 +94,6 @@ public class Management extends Fulltime {
 		}	
 	}
 	
-	//Have to make setter and/or getter to convert from double to DecimalFormat for theBonus
-	
 	@Override
 	public String toString() { 
 		String roleOutput = "";
