@@ -7,7 +7,6 @@ public class Employee {
 	
 	private Profile empProfile = new Profile(); //profile that uniquely identifies each employee
 	private double paid;
-	private DecimalFormat payment = new DecimalFormat("$###,###.##"); //Stores calculated payment, but idk if necessary
 	
 	/**
 	Help intialize employee objects
@@ -18,12 +17,17 @@ public class Employee {
 		this.paid = paidSalary;
 	}
 	
+	@Override
 	public void calculatePayment() {
 		
 	}
 	
 	public double getPaid() {
 		return paid;
+	}
+	
+	public void setPaid(double paid) {
+		this.paid = paid;
 	}
 	
 	public Profile getempProfile() {
@@ -37,7 +41,7 @@ public class Employee {
 	*/
 	@Override
 	public String toString() { 
-		return empProfile.toString() + "::Payment " + payment;
+		return empProfile.toString() + "::Payment " + getdollarValue();
 	}
 	
 	//Still must check if this is correct, see what more to do
@@ -51,7 +55,7 @@ public class Employee {
 			return false;
 		}
 		Employee objEmployee = (Employee) obj;
-		if (this.empProfile.equals(objEmployee.empProfile) &&  this.payment.equals(objEmployee.payment)) {
+		if (this.empProfile.equals(objEmployee.empProfile) &&  this.paid.equals(objEmployee.paid)) {
 			return true;
 		}
 		return false;

@@ -8,7 +8,6 @@ public class Management extends Fulltime {
 	private double deptheadcomp = 9500; //2 aditional compensation annually
 	private double directorcomp = 12000; //3 additional compensation annually
 	private double bonus;
-	private DecimalFormat theBonus = new DecimalFormat("$##,###.##");
 	private int manager = 1;
 	private int deptHead = 2;
 	private int director = 3;
@@ -25,6 +24,11 @@ public class Management extends Fulltime {
 	
 	public double getBonus() {
 		return bonus;
+	}
+	
+	public String getTheBonus() {
+		String theBonus = "";
+		return theBonus = new DecimalFormat("$##,###.##").format(bonus);
 	}
 	
 	public boolean getMnger() { 
@@ -57,36 +61,37 @@ public class Management extends Fulltime {
 	*/
 	@Override
 	public void calculatePayment() { 
+		double thePay = super.getPaid();
+		double annSalary = super.getAnnualSalary();
+		int totalPayPeriods = super.getFTPayPeriods();
 		int payCounter = 0;
 		for(int i=0; i <= director; i++) { //each index of array represents a managerial role
 			if(i == manager) {
-				if(payCounter != super.fulltimepayperiods) { //too ensure we cannot have more than 26 pay periods in year
+				if(payCounter != totalPayPeriods) { //too ensure we cannot have more than 26 pay periods in year
 					if(bonus <= managercomp) { //additional comp for specific role for each pay period cannot be more than total annual
-						super.paid = (super.annualSalary/ super.fulltimepayperiods) + bonus; 
+						thePay = (annSalary/ totalPayPeriods) + bonus; 
 						managercomp = managercomp - bonus; //after managerial employee paid part of add comp, what they can be paid for the rest of the year decrements by how much they were paid 
 						payCounter++;	
 					}
 				}
 			}else if(i == deptHead) {
-				if(payCounter != super.fulltimepayperiods) {
+				if(payCounter != totalPayPeriods) {
 					if(bonus <= deptheadcomp) {
-						super.paid = (super.annualSalary/ super.fulltimepayperiods) + bonus; 
+						thePay = (annSalary/ totalPayPeriods) + bonus; 
 						deptheadcomp = deptheadcomp - bonus;
 						payCounter++;
 					}
 				}
 			}else {
-				if(payCounter != super.fulltimepayperiods) {
+				if(payCounter != totalPayPeriods) {
 					if(bonus <= directorcomp) {
-						super.paid = (super.annualSalary/ super.fulltimepayperiods) + bonus;
+						thePay = (annSalary/ totalPayPeriods) + bonus;
 						directorcomp = directorcomp - bonus;
-						payCounter++;
-						
+						payCounter++;	
 					}	
 				}
 			}
-		}
-		
+		}	
 	}
 	
 	//Have to make setter and/or getter to convert from double to DecimalFormat for theBonus
@@ -95,11 +100,11 @@ public class Management extends Fulltime {
 	public String toString() { 
 		String roleOutput = "";
 		if(getMnger() == true) {
-			roleOutput = super.toString() + "::Manager Compensation " + theBonus;
+			roleOutput = super.toString() + "::Manager Compensation " + getTheBonus();
 		}else if(getDpthd() == true) {
-			roleOutput = super.toString() + "::Director Compensation " + theBonus;
+			roleOutput = super.toString() + "::Director Compensation " + getTheBonus();
 		}else if(getDrctr() == true) {
-			roleOutput = super.toString() + "::DepartmentHead Compensation " + theBonus;
+			roleOutput = super.toString() + "::DepartmentHead Compensation " + getTheBonus();
 		}
 		return roleOutput;
 	}

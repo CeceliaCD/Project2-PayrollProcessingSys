@@ -19,6 +19,7 @@ public class Parttime extends Employee {
 		this.hrlyRate = hrlyRate;
 		this.hoursWorked = hrsWorked;
 	}
+	
 	public void setHourlyRate(DecimalFormat rate) {
 		this.hourlyRate = rate;
 	}
@@ -26,32 +27,35 @@ public class Parttime extends Employee {
 	public void setHoursWorked(int hours) {
 		this.hoursWorked = hours;
 	}
+	
 	@Override
 	public void calculatePayment() { 
 		//parttimeTotalHrs = new DecimalFormat("##.##");
 		//DecimalFormat payPeriod = new DecimalFormat("##.##");
 		//payPeriod =	hourlyRate * (DecimalFormat)hoursWorked;
+		double paidSalary = super.getPaid();
 		if(hoursWorked <= parttimeTotalHrs) {
-			super.paid = hrlyRate * hoursWorked;
-			String payPeriod = new DecimalFormat("##.##").format(super.paid);
+			paidSalary = hrlyRate * hoursWorked;
+			String payPeriod = new DecimalFormat("$###,###.##").format(paidSalary);
 		}else if(hoursWorked <= hoursLimit) {
 			int overtimeDiff = hoursWorked - parttimeTotalHrs;
-			super.paid = (hrlyRate * parttimeTotalHrs) + (OVERTIME * overtimeDiff);
-			String payPeriod = new DecimalFormat("##.##").format(super.paid);
+			paidSalary = (hrlyRate * parttimeTotalHrs) + (OVERTIME * overtimeDiff);
+			String payPeriod = new DecimalFormat("$###,###.##").format(paidSalary);
 		}
 		
 	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + "::PART TIME::Hourly Rate " + hourlyRate + "::Hours worked this period: " + Integer.toString(hoursWorked);
+	}
+	
 	@Override
 	public boolean equals(Object obj){
 		if (obj instanceof Parttime) {
 			return super.equals(obj) && hourlyRate == ((Parttime) obj).hourlyRate;
 		}
 		return false;
-	}
-
-	@Override
-	public String toString() {
-		return super.toString();
 	}
 
 }
