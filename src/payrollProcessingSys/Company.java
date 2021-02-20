@@ -29,6 +29,7 @@ public class Company {
 		}
 		return -1;
 	}
+	
 	private void grow() { 
 		Employee[] temp = new Employee[emplist.length + 4];
 		for (int i = 0; i < emplist.length; i++) {
@@ -36,11 +37,13 @@ public class Company {
 		}
 		emplist = temp;
 	}
+	
 	public boolean add(Employee employee) { // need to determine if employee is PT FT or M
 		if (numEmployee%CAPACITY == 0 && numEmployee > 1) {
 			grow();
 		}
 	} //check the profile before adding 
+	
 	public boolean remove(Employee employee) { // might have to change
 		int rNum = find(employee);
 		if (rNum == -1) {
