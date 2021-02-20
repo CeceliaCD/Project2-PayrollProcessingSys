@@ -19,7 +19,7 @@ public class Company {
 			{
 				return -1;
 			}
-			if (emplist[i].getName().equals(employee.getName())) //Not working because still need to finish Employee class
+			if (emplist[i].getempProfile().equals(employee.getempProfile()))
 			{
 				return i;
 			}
@@ -34,7 +34,7 @@ public class Company {
 		emplist = temp;
 	}
 	public boolean add(Employee employee) { // need to determine if employee is PT FT or M
-		if (empNums%CAPACITY == 0 && empNums > 1) {
+		if (numEmployee%CAPACITY == 0 && numEmployee > 1) {
 			grow();
 		}
 	} //check the profile before adding 
@@ -50,10 +50,31 @@ public class Company {
 		numEmployee--;
 		return true;
 	} //maintain the original sequence 
-	public boolean setHours(Employee employee) { } //set working hours for a part time 
-	public void processPayments() { } //process payments for all employees
-	public void print() { } //print earning statements for all employees
-	public void printByDepartment() { } //print earning statements by department 
-	public void printByDate() { } //print earning statements by date hired
+	public boolean setHours(Employee employee) { //set working hours for a part time 
+		
+	} 
+	public void processPayments() { //process payments for all employees
+		
+	} 
+	public void print() { //print earning statements for all employees
+		if(numEmployee != 0) {
+			System.out.println("--Printing earning statements for all employees--");
+			for(int i=0; i < emplist.length; i++) 
+			{
+				if (emplist[i] != null) //to ensure no null elements are printed
+				{  
+					System.out.println(emplist[i]);
+				}
+			}
+		}else {
+			System.out.println("Employee database is empty.");
+		}
+	} 
+	public void printByDepartment() { //print earning statements by department 
+		
+	} 
+	public void printByDate() { //print earning statements by date hired
+		
+	} 
 
 }
