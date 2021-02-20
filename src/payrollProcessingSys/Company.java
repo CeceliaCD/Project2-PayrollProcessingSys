@@ -1,4 +1,7 @@
 package payrollProcessingSys;
+
+import java.util.StringTokenizer;
+
 /**
 @author Ceceliachollette-Dickson, Nidaansari
 */
@@ -70,11 +73,67 @@ public class Company {
 			System.out.println("Employee database is empty.");
 		}
 	} 
+	
 	public void printByDepartment() { //print earning statements by department 
 		
 	} 
+	
 	public void printByDate() { //print earning statements by date hired
-		
+		if(numEmployee != 0) {
+			Employee tempEmployee;
+			
+			for(int i=0; i < emplist.length; i++)
+			{
+				for(int j=i+1; j< emplist.length; j++)
+				{
+					if(emplist[i] != null && emplist[j] != null) //helps with null elements
+					{ 
+						Date dateHired1= emplist[i].getempProfile().getDateHired();
+						Date dateHired2= emplist[j].getempProfile().getDateHired();
+						
+						if(dateHired1.compareTo(dateHired2) == 1) 
+						{
+							
+								tempEmployee = emplist[i];
+								emplist[i] = emplist[j];
+								emplist[j] = tempEmployee;
+						}else if(dateHired1.compareTo(dateHired2) == 0) {
+							String dept1 = emplist[i].getempProfile().getDept();
+							String dept2 = emplist[j].getempProfile().getDept();
+							if(dept1.compareTo(dept2) > 0) 
+							{
+									Employee tempEE = emplist[i];
+									emplist[i] = emplist[j];
+									emplist[j] = tempEE;
+							}else if(dept1.compareTo(dept2) == 0) {
+								String name1 = emplist[i].getempProfile().getName();
+								String name2 = emplist[j].getempProfile().getName();
+								if(name1.compareTo(name2) > 0) {
+									Employee temp = emplist[i];
+									emplist[i] = emplist[j];
+									emplist[j] = temp;
+								}
+							}
+						}
+					}else if(emplist[i] == null && emplist[j] != null) {
+						emplist[i] = emplist[j];
+					}else if(emplist[i] != null && emplist[j] == null) {
+						continue;
+					}
+				}
+			}
+			
+			System.out.println("--Printing earning statements by date hired--");
+			for(int j=0; j < emplist.length; j++) {
+				if (emplist[j] != null) 
+				{
+					System.out.println(emplist[j]);
+				}
+				
+			}
+		}else {
+			System.out.println("Employee database is empty.");
+		}
 	} 
 
 }
