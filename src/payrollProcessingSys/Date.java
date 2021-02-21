@@ -79,32 +79,32 @@ public class Date implements Comparable<Date> {
 	public boolean isValid() { 
 		
 		Calendar cal = Calendar.getInstance();
-		int oldestPublishedyr = 1900;
-		int lastDayFeb = 28;
-		int lastDayFebLeap = 29;
+		int oldestPublishedyr = 1900; //the oldest hire year allowed
+		int lastDayFeb = 28; //last day of February in a non-leap year
+		int lastDayFebLeap = 29; //last day of February in a leap year
 		
 		Date currDate = new Date(); //gives us the current date
 		
 	
-		//YEAR
-		if(year < oldestPublishedyr || year > currDate.getYear()) 
+		
+		if(year < oldestPublishedyr || year > currDate.getYear()) //YEAR check
 		{ 
 			return false; 
 		}
 		
 		
-		//MONTH
-		if((month > currDate.getMonth() || month > Calendar.MONTH+1) && year == currDate.getYear()) 
+		
+		if((month > currDate.getMonth() || month > Calendar.MONTH+1) && year == currDate.getYear()) //MONTH check
 		{ 
 			return false; 
 		}else if(month > Calendar.DECEMBER+1 && year < currDate.getYear()) {
 			return false;
 		}	
 	
-		//Making sure the range of days for these months are 31 
-		if(month == cal.get(Calendar.JANUARY+1) || month == cal.get(Calendar.MARCH+1) || month == cal.get(Calendar.MAY+1) 
-				|| month == cal.get(Calendar.JULY+1) || month == cal.get(Calendar.AUGUST+1) || month == cal.get(Calendar.OCTOBER+1) 
-				|| month == cal.get(Calendar.DECEMBER+1)) 
+		
+		if(month == cal.get(Calendar.JANUARY+1) || month == cal.get(Calendar.MARCH+1) 
+				|| month == cal.get(Calendar.MAY+1) || month == cal.get(Calendar.JULY+1) || month == cal.get(Calendar.AUGUST+1) 
+				|| month == cal.get(Calendar.OCTOBER+1) || month == cal.get(Calendar.DECEMBER+1)) //Making sure the range of days for these months are 31 
 		{
 			if(day < cal.getMinimum(Calendar.DAY_OF_MONTH) || day > cal.getMaximum(Calendar.DAY_OF_MONTH)) 
 			{
@@ -113,9 +113,9 @@ public class Date implements Comparable<Date> {
 		
 		}
 		
-		//Making sure the range of days for these months are 30
+		
 		if(month == cal.get(Calendar.APRIL+1) || month == cal.get(Calendar.JUNE+1) 
-				|| month == cal.get(Calendar.SEPTEMBER+1) || month == cal.get(Calendar.NOVEMBER+1)) 
+				|| month == cal.get(Calendar.SEPTEMBER+1) || month == cal.get(Calendar.NOVEMBER+1)) //Making sure the range of days for these months are 30
 		{
 			if(day < cal.getMinimum(Calendar.DAY_OF_MONTH) || day > cal.getMaximum(Calendar.DAY_OF_MONTH)) 
 			{
@@ -124,8 +124,8 @@ public class Date implements Comparable<Date> {
 			
 		}
 		
-		//DAY
-		if((day > currDate.getDay() || day > cal.getMaximum(Calendar.DAY_OF_MONTH)) && year == currDate.getYear()) 
+		
+		if((day > currDate.getDay() || day > cal.getMaximum(Calendar.DAY_OF_MONTH)) && year == currDate.getYear()) //DAY check
 		{ 
 			return false; 
 		}else if(day < cal.getMinimum(Calendar.DAY_OF_MONTH) && year < currDate.getYear()) {
@@ -172,7 +172,6 @@ public class Date implements Comparable<Date> {
 	compared.
 	@return a string variable of the month, day and year in mm/dd/yyyy format
 	*/
-	
 	public String toString() {
 		return  getMonth() + "/" + getDay() + "/" + getYear();
 	}
