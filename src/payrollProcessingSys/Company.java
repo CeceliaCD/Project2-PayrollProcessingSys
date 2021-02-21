@@ -1,7 +1,5 @@
 package payrollProcessingSys;
 
-import java.util.StringTokenizer;
-
 /**
 @author Ceceliachollette-Dickson, Nidaansari
 */
@@ -10,11 +8,18 @@ public class Company {
 	private int numEmployee;
 	private int CAPACITY = 4;
 	
+	/**
+	 
+	*/
 	public Company() { //default constructor to make empty employee system
 		this.emplist = new Employee[CAPACITY];
 		this.numEmployee = 0;
 	}
 	
+	/**
+	@param
+	@return 
+	*/
 	private int find(Employee employee) {
 		for (int i = 0; i < emplist.length; i++) 
 		{
@@ -30,6 +35,9 @@ public class Company {
 		return -1;
 	}
 	
+	/**
+	 
+	*/
 	private void grow() { 
 		Employee[] temp = new Employee[emplist.length + 4];
 		for (int i = 0; i < emplist.length; i++) {
@@ -38,6 +46,10 @@ public class Company {
 		emplist = temp;
 	}
 	
+	/**
+	@param
+	@return 
+	*/
 	public boolean add(Employee employee) { // need to determine if employee is PT FT or M
 		if (numEmployee % CAPACITY == 0 && numEmployee > 1) {
 			grow();
@@ -52,6 +64,10 @@ public class Company {
 		}
 	} //check the profile before adding 
 	
+	/**
+	@param
+	@return 
+	*/
 	public boolean remove(Employee employee) { // might have to change
 		int rNum = find(employee);
 		if (rNum == -1) {
@@ -65,14 +81,24 @@ public class Company {
 		return true;
 	} //maintain the original sequence 
 	
+	/**
+	@param
+	@return 
+	*/
 	public boolean setHours(Employee employee) { //set working hours for a part time 
 		
 	} 
 	
+	/**
+	 
+	*/
 	public void processPayments() { //process payments for all employees
 		
 	} 
 	
+	/**
+ 
+	*/
 	public void print() { //print earning statements for all employees
 		if(numEmployee != 0) {
 			System.out.println("--Printing earning statements for all employees--");
@@ -88,6 +114,9 @@ public class Company {
 		}
 	} 
 	
+	/**
+	
+	*/
 	public void printByDepartment() { //print earning statements by department 
 		if(numEmployee != 0) {
 			Employee tempEmpDept;
@@ -134,6 +163,9 @@ public class Company {
 		}
 	} 
 	
+	/**
+	
+	*/
 	public void printByDate() { //print earning statements by date hired
 		if(numEmployee != 0) {
 			Employee tempEmployee;
