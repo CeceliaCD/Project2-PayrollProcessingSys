@@ -42,6 +42,17 @@ public class Company {
 		if (numEmployee%CAPACITY == 0 && numEmployee > 1) {
 			grow();
 		}
+		// checking the profile before adding
+		int EMP_LENGTH = emplist.length - numEmployee;
+		for (int i = 0; i < emplist.length - EMP_LENGTH; i++) {
+			if (emplist[i].getempProfile().equals(employee.getempProfile())) {
+				return false;
+			}
+		}
+		emplist[numEmployee] = employee;
+		numEmployee++;
+		return true;
+		}
 	} //check the profile before adding 
 	
 	public boolean remove(Employee employee) { // might have to change
