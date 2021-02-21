@@ -4,13 +4,7 @@ import java.text.DecimalFormat;
 @author Ceceliachollette-Dickson, Nidaansari
 */
 public class Management extends Fulltime {
-	private double managercomp = 5000; //1 additional compensation annually
-	private double deptheadcomp = 9500; //2 aditional compensation annually
-	private double directorcomp = 12000; //3 additional compensation annually
 	private double bonus;
-	private int manager = 1;
-	private int deptHead = 2;
-	private int director = 3;
 	private boolean mnger;
 	private boolean dpthd;
 	private boolean drctr;
@@ -61,6 +55,12 @@ public class Management extends Fulltime {
 	*/
 	@Override
 	public void calculatePayment() { 
+		double managercomp = 5000; //1 additional compensation annually
+		double deptheadcomp = 9500; //2 aditional compensation annually
+		double directorcomp = 12000; //3 additional compensation annually
+		int manager = 1;
+		int deptHead = 2;
+		int director = 3;
 		double thePay = super.getPaid();
 		double annSalary = super.getAnnualSalary();
 		int totalPayPeriods = super.getFTPayPeriods();
