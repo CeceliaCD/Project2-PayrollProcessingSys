@@ -9,7 +9,8 @@ public class Employee {
 	private double paid;
 	
 	/**
-	Help intialize employee objects
+	This constructor helps intialize employee objects
+	@param
 	*/
 	public Employee(Profile eProfile, double paidSalary) {
 		// TODO Auto-generated constructor stub
@@ -17,22 +18,38 @@ public class Employee {
 		this.paid = paidSalary;
 	}
 	
+	/**
+	@return
+	*/
 	public double getPaid() {
 		return paid;
 	}
 	
+	/**
+	@return
+	*/
 	public String getDollarValue() {
 		String dollarValue = "";
 		return dollarValue = new DecimalFormat("$###,###.##").format(paid);
 	}
 	
+	/**
+	@param 
+	*/
 	public void setPaid(double paid) {
 		this.paid = paid;
 	}
 	
+	/**
+	@return
+	*/
 	public Profile getempProfile() {
 		return empProfile;
 	}
+	
+	/**
+	 
+	*/
 	@Override
 	public void calculatePayment() {
 		getDollarValue();
@@ -47,7 +64,10 @@ public class Employee {
 		return empProfile.toString() + "::Payment " + getDollarValue();
 	}
 	
-	//
+	/**
+	@param
+	@return
+	*/
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {

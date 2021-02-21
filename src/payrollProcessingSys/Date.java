@@ -4,20 +4,19 @@ import java.util.StringTokenizer;
 /**
 @author Ceceliachollette-Dickson, Nidaansari
 */
-
 public class Date implements Comparable<Date> { 
 	private int year;
 	private int month; 
 	private int day;
 	
-	public static final int QUAD = 4;
-	public static final int CENT = 100;
-	public static final int QUATER = 400;
+	public static final int QUAD = 4; //value to help calculate if a year is a leap year
+	public static final int CENT = 100; //value to help calculate if a year is a leap year
+	public static final int QUATER = 400; //value to help calculate if a year is a leap year
 	
 	
 	/**
-	This method is taking a string in mm/dd/yyyy and creates
-	a Date object that the user can input in a similar format.
+	This parameterized constructor is taking a string in mm/dd/yyyy
+	and creates a Date object that the user can input in a similar format.
 	@param date of type String to create Date object 
 	*/
 	public Date(String date) {

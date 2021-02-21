@@ -9,46 +9,71 @@ public class Management extends Fulltime {
 	private boolean dpthd;
 	private boolean drctr;
 	
-	//Right now I don't think these subclass constructors are necessary since there is only employee objects
+	/**
+	@param
+	*/
 	public Management(Profile eProfile, double thePay, double annSalary, double theBonus) {
 		// TODO Auto-generated constructor stub
 		super(eProfile, thePay, annSalary);
 		this.bonus = theBonus;
 	}
 	
+	/**
+	@return 
+	*/
 	public double getBonus() {
 		return bonus;
 	}
 	
+	/**
+	@return
+	*/
 	public String getTheBonus() {
 		String theBonus = "";
 		return theBonus = new DecimalFormat("$##,###.##").format(bonus);
 	}
 	
+	/**
+	@return
+	*/
 	public boolean getMnger() { 
 		return mnger;
 	}
 	
+	/**
+	@return 
+	*/
 	public boolean getDpthd() {
 		return dpthd;
 	}
 	
+	/**
+	@return 
+	*/
 	public boolean getDrctr() {
 		return drctr;
 	}
 	
+	/**
+	@param 
+	*/
 	public void setMnger(boolean mnger) { 
 		this.mnger = mnger;
 	}
 	
+	/**
+	@param
+	*/
 	public void setDpthd(boolean dpthd) {
 		this.dpthd = dpthd;
 	}
 	
+	/**
+	@param
+	*/
 	public void setDrctr(boolean drctr) {
 		this.drctr = drctr;
 	}
-	
 	
 	/** 
 	According to the given role number, calculates the earning for the pay period
@@ -94,6 +119,9 @@ public class Management extends Fulltime {
 		}	
 	}
 	
+	/**
+	@return
+	*/
 	@Override
 	public String toString() { 
 		String roleOutput = "";
@@ -107,6 +135,10 @@ public class Management extends Fulltime {
 		return roleOutput;
 	}
 	
+	/**
+	@param
+	@return
+	*/
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Management) {

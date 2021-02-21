@@ -7,35 +7,60 @@ public class Profile {
 	private String department; //department code: CS, ECE, IT
 	private Date dateHired;
 	
-	public String getName() { //setters are not needed since variables are supposed to be immutable
+	/**
+	@return 
+	*/
+	public String getName() { 
 		return name;
 	}
 	
-	public String getDept() { //setters are not needed since variables are supposed to be immutable
+	/**
+	@return 
+	*/
+	public String getDept() { 
 		return department;
 	}
 	
-	public Date getDateHired() { //setters are not needed since variables are supposed to be immutable
+	/**
+	@return
+	*/
+	public Date getDateHired() { 
 		return dateHired;
 	}
 	
+	/**
+	@param
+	*/
 	public void setName(String empName) {
 		this.name = empName;
 	}
 	
+	/**
+	@param
+	*/
 	public void setDepartment(String dept) {
 		this.department = dept;
 	}
 	
+	/**
+	@param 
+	*/
 	public void setDateHired(Date hired) {
 		this.dateHired = hired;
 	}
 	
+	/**
+	@return 
+	*/
 	@Override
 	public String toString() { 
 		return getName() + "::" + getDept() + "::" + getDateHired().toString();
 	}
 	
+	/**
+	@param
+	@return 
+	*/
 	// DOUBLE CHECK THIS @ NIDA
 	@Override
 	public boolean equals(Object obj) { //compare name, department and dateHired

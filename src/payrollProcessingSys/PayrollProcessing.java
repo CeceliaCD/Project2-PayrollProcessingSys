@@ -1,9 +1,14 @@
 package payrollProcessingSys;
 import java.util.Scanner;
 import java.util.StringTokenizer;
-
+/**
+@author Ceceliachollette-Dickson, Nidaansari
+*/
 public class PayrollProcessing {
 	
+	/**
+	 
+	*/
 	public void run() {
 		
 		Scanner userInput = new Scanner(System.in);
