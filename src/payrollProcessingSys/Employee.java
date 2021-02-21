@@ -35,7 +35,7 @@ public class Employee {
 	}
 	@Override
 	public void calculatePayment() {
-		
+		getDollarValue();
 	}
 	
 	

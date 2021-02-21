@@ -38,16 +38,17 @@ public class Parttime extends Employee {
 		//parttimeTotalHrs = new DecimalFormat("##.##");
 		//DecimalFormat payPeriod = new DecimalFormat("##.##");
 		//payPeriod =	hourlyRate * (DecimalFormat)hoursWorked;
-		double paidSalary = super.getPaid();
-		if(hoursWorked <= parttimeTotalHrs) {
-			paidSalary = hrlyRate * hoursWorked;
-			String payPeriod = new DecimalFormat("$###,###.##").format(paidSalary);
-		}else if(hoursWorked <= hoursLimit) {
-			int overtimeDiff = hoursWorked - parttimeTotalHrs;
-			paidSalary = (hrlyRate * parttimeTotalHrs) + (OVERTIME * overtimeDiff);
-			String payPeriod = new DecimalFormat("$###,###.##").format(paidSalary);
+		if(hoursWorked >= 0) {
+			double paidSalary = super.getPaid();
+			if(hoursWorked <= parttimeTotalHrs) {
+				paidSalary = hrlyRate * hoursWorked;
+				String payPeriod = new DecimalFormat("$###,###.##").format(paidSalary);
+			}else if(hoursWorked > parttimeTotalHrs && hoursWorked <= hoursLimit) {
+				int overtimeDiff = hoursWorked - parttimeTotalHrs;
+				paidSalary = (hrlyRate * parttimeTotalHrs) + (OVERTIME * overtimeDiff);
+				String payPeriod = new DecimalFormat("$###,###.##").format(paidSalary);
+			}	
 		}
-		
 	}
 	
 	@Override
