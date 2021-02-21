@@ -27,6 +27,13 @@ public class Fulltime extends Employee {
 	}
 	
 	/**
+	@param
+	*/
+	public void setAnnualSalary(double annSal) {
+		this.annualSalary = annSal;
+	}
+	
+	/**
 	@return
 	*/
 	public String getAnnSalary() {
