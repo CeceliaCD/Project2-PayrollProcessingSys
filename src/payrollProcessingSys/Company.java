@@ -39,19 +39,16 @@ public class Company {
 	}
 	
 	public boolean add(Employee employee) { // need to determine if employee is PT FT or M
-		if (numEmployee%CAPACITY == 0 && numEmployee > 1) {
+		if (numEmployee % CAPACITY == 0 && numEmployee > 1) {
 			grow();
 		}
-		// checking the profile before adding
-		int EMP_LENGTH = emplist.length - numEmployee;
-		for (int i = 0; i < emplist.length - EMP_LENGTH; i++) {
-			if (emplist[i].getempProfile().equals(employee.getempProfile())) {
-				return false;
-			}
+		if (find(employee) == -1) {
+			emplist[numEmployee] = employee;
+			numEmployee++;
+			return true;
 		}
-		emplist[numEmployee] = employee;
-		numEmployee++;
-		return true;
+		else {
+			return false;
 		}
 	} //check the profile before adding 
 	
