@@ -19,6 +19,18 @@ public class Profile {
 		return dateHired;
 	}
 	
+	public void setName(String empName) {
+		this.name = empName;
+	}
+	
+	public void setDepartment(String dept) {
+		this.department = dept;
+	}
+	
+	public void setDateHired(Date hired) {
+		this.dateHired = hired;
+	}
+	
 	@Override
 	public String toString() { 
 		return getName() + "::" + getDept() + "::" + getDateHired().toString();
