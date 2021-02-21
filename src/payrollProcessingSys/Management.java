@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 @author Ceceliachollette-Dickson, Nidaansari
 */
 public class Management extends Fulltime {
+	
 	private double bonus;
 	private boolean mnger;
 	private boolean dpthd;
