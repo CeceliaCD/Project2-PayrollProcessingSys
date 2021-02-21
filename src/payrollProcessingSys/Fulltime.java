@@ -72,7 +72,7 @@ public class Fulltime extends Employee {
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Fulltime) {
-			return super.equals(obj) && getAnnualSalary() == ((Fulltime) obj).getAnnualSalary();
+			return super.equals(obj) && annualSalary == ((Fulltime) obj).annualSalary;
 		}
 		return false;
 	}

@@ -79,7 +79,7 @@ public class Employee {
 			return false;
 		}
 		Employee objEmp = (Employee) obj;
-		if (this.empProfile.equals(objEmp.empProfile)) {
+		if (this.empProfile.equals(objEmp.empProfile) && this.paid == objEmp.paid) {
 			return true;
 		}
 		return false;

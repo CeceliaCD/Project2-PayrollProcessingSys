@@ -7,18 +7,17 @@ import java.text.DecimalFormat;
 */
 public class Parttime extends Employee {
 	
-	private String hourlyRate = ""; //Having this variable in this subclass is ok since it does not parent any other class
-	private double hrlyRate;
+	private double hourlyRate;
 	private static final double OVERTIME = 1.5; //Represents time and a half regular hourly for more than 80 hours
 	private int hoursWorked; // hours that a parttimer worked, int bc paid every hour worked
 	
 	/**
 	@param
 	*/
-	public Parttime(Profile eProfile, double paidSalary, double hrlyRate, int hrsWorked) {
+	public Parttime(Profile eProfile, double paidSalary, double hrlyrate, int hrsWorked) {
 		// TODO Auto-generated constructor stub
 		super(eProfile, paidSalary);
-		this.hrlyRate = hrlyRate;
+		this.hourlyRate = hrlyrate;
 		this.hoursWorked = hrsWorked;
 	}
 	
@@ -26,7 +25,8 @@ public class Parttime extends Employee {
 	@return
 	*/
 	public String getHourlyRate() {
-		return hourlyRate = new DecimalFormat("$##.##").format(hrlyRate);
+		String hrlyRate = ""; 
+		return hrlyRate = new DecimalFormat("$##.##").format(hourlyRate);
 		
 	}
 	
@@ -34,7 +34,7 @@ public class Parttime extends Employee {
 	@param 
 	*/
 	public void setHourlyRate(double rate) {
-		this.hourlyRate = Double.toString(rate);
+		this.hourlyRate = rate;
 	}
 	
 	/**
@@ -57,12 +57,12 @@ public class Parttime extends Employee {
 		if(hoursWorked >= 0) {
 			double paidSalary = super.getPaid();
 			if(hoursWorked <= parttimeTotalHrs) {
-				paidSalary = hrlyRate * hoursWorked;
-				String payPeriod = new DecimalFormat("$###,###.##").format(paidSalary);
+				paidSalary = hourlyRate * hoursWorked;
+				String payPeriod = new DecimalFormat("$###,###.##").format(paidSalary); //these might not be needed
 			}else if(hoursWorked > parttimeTotalHrs && hoursWorked <= hoursLimit) {
 				int overtimeDiff = hoursWorked - parttimeTotalHrs;
-				paidSalary = (hrlyRate * parttimeTotalHrs) + (OVERTIME * overtimeDiff);
-				String payPeriod = new DecimalFormat("$###,###.##").format(paidSalary);
+				paidSalary = (hourlyRate * parttimeTotalHrs) + (OVERTIME * overtimeDiff);
+				String payPeriod = new DecimalFormat("$###,###.##").format(paidSalary); //these might not be needed
 			}	
 		}
 	}
