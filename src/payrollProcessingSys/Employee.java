@@ -23,6 +23,13 @@ public class Employee {
 	/**
 	@return
 	*/
+	public Profile getempProfile() {
+		return empProfile;
+	}
+	
+	/**
+	@return
+	*/
 	public double getPaid() {
 		return paid;
 	}
@@ -43,20 +50,12 @@ public class Employee {
 	}
 	
 	/**
-	@return
-	*/
-	public Profile getempProfile() {
-		return empProfile;
-	}
-	
-	/**
 	 
 	*/
 	@Override
 	public void calculatePayment() {
 		paid = 0.0;
 	}
-	
 	
 	/**
 	@return  

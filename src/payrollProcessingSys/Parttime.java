@@ -24,6 +24,13 @@ public class Parttime extends Employee {
 	/**
 	@return
 	*/
+	public double getDoubleHourlyRate() {
+		return hourlyRate;
+	}
+	
+	/**
+	@return
+	*/
 	public String getHourlyRate() {
 		String hrlyRate = ""; 
 		return hrlyRate = new DecimalFormat("$##.##").format(hourlyRate);

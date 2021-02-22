@@ -39,7 +39,7 @@ public class Profile {
 	/**
 	@param
 	*/
-	public void setDepartment(String dept) {
+	public void setDept(String dept) {
 		this.department = dept;
 	}
 	

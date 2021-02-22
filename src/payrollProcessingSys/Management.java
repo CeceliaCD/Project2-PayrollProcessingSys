@@ -31,13 +31,6 @@ public class Management extends Fulltime {
 	}
 	
 	/**
-	@param 
-	*/
-	public void setBonus(double theBonus) {
-		this.bonus = theBonus;
-	}
-	
-	/**
 	@return
 	*/
 	public String getTheBonus() {
@@ -50,6 +43,13 @@ public class Management extends Fulltime {
 	*/
 	public int getRole() { 
 		return role;
+	}
+	
+	/**
+	@param 
+	*/
+	public void setBonus(double theBonus) {
+		this.bonus = theBonus;
 	}
 	
 	/**
