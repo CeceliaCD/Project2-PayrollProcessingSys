@@ -86,7 +86,22 @@ public class Company {
 	@return 
 	*/
 	public boolean setHours(Employee employee) { //set working hours for a part time 
-		
+		int emp = find(employee);		
+		if (emp == -1) {
+			return false;
+		}
+		else {
+			if (emplist[emp] instanceof Parttime) {
+				//Parttime parttimeEmp = (Parttime) employee;				
+				Parttime parttimer = (Parttime) emplist[emp];
+				int hoursWorked = parttimer.getHoursWorked();
+				parttimer.setHoursWorked(hoursWorked);
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
 	} 
 	
 	/**
