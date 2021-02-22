@@ -3,18 +3,28 @@ package payrollProcessingSys;
 import java.text.DecimalFormat;
 
 /**
+The management class is a subclass of our fulltime class.
+This means employees that have managerial roles are also
+considered fulltime employees, thus have the same 26 pay 
+periods. We define three types of managerial roles: manager,
+department head, and director. In this class their bi-weekly
+payments are calculated in a similar fashion, but they are 
+different because the limit for their additional annual 
+compensations are different.
 @author Ceceliachollette-Dickson, Nidaansari
 */
 public class Management extends Fulltime {
 	
-	private double bonus;
-	private int role;
+	private double bonus; //whatever amount the user gives in for the respective role's bonus
+	private int role; //whatever value the user gives for the role
 	private int manager = 1;
 	private int deptHead = 2;
 	private int director = 3;
 	
 	/**
-	@param
+	The parameterized constructor that specifies what specific attributes a fulltime
+	employee with a managerial role must have.
+	@param profile consisting of employee's name, department and date of hire, along with what they're paid each period, annual salary and managerial role
 	*/
 	public Management(Profile eProfile, double thePay, double annSalary, int theRole, double theBonus) {
 		// TODO Auto-generated constructor stub
@@ -24,14 +34,16 @@ public class Management extends Fulltime {
 	}
 	
 	/**
-	@return 
+	Getter method to obtain an employee's bonus this period.
+	@return the double value of the employee's bonus
 	*/
 	public double getBonus() {
 		return bonus;
 	}
 	
 	/**
-	@return
+	Getter method to obtain an employee's bonus in decimal format.
+	@return the decimal format of the bonus with two decimal places and dollar value
 	*/
 	public String getTheBonus() {
 		String theBonus = "";
@@ -39,21 +51,24 @@ public class Management extends Fulltime {
 	}
 	
 	/**
-	@return
+	Getter method to obtain an employee's integer representation of their managerial role.
+	@return the integer value of manager (1), department head (2), or director (3)
 	*/
 	public int getRole() { 
 		return role;
 	}
 	
 	/**
-	@param 
+	Setter method to set the bonus for an employee during the current pay period.
+	@param double value of the bonus that an employee of a managerial role is given
 	*/
 	public void setBonus(double theBonus) {
 		this.bonus = theBonus;
 	}
 	
 	/**
-	@param
+	Setter method to set the role for an employee entering the company.
+	@param the integer value of the role that will be given to an employee of managerial status
 	*/
 	public void setRole(int theRole) {
 		this.role = theRole;

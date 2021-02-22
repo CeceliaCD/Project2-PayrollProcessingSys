@@ -4,6 +4,9 @@ import java.util.Calendar;
 import java.util.StringTokenizer;
 
 /**
+The date class helps with verifying if a 
+given date is accurate (i.e. not too old 
+and not an impossibly made up one).
 @author Ceceliachollette-Dickson, Nidaansari
 */
 public class Date implements Comparable<Date> { 
