@@ -135,7 +135,7 @@ public class Company {
 					{ 
 						String dept1 = emplist[i].getempProfile().getDept();
 						String dept2 = emplist[j].getempProfile().getDept();
-						if(dept1.compareTo(dept2) > 0) 
+						if(dept1.compareTo(dept2) > 0) //comparing the departments alphabetically to order the employees that way
 						{
 							tempEmpDept = emplist[i];
 							emplist[i] = emplist[j];
@@ -143,13 +143,14 @@ public class Company {
 						}else if(dept1.compareTo(dept2) == 0) {
 							String tempEmpName1 = emplist[i].getempProfile().getName();
 							String tempEmpName2 = emplist[j].getempProfile().getName();
-							if(tempEmpName1.compareTo(tempEmpName2) > 0) {
+							if(tempEmpName1.compareTo(tempEmpName2) > 0) //when employees belong to the same department, we then order them alphabetically by name
+							{
 								Employee temp =  emplist[i];
 								emplist[i] = emplist[j];
 								emplist[j] = temp;
 							}
 						}
-					}else if(emplist[i] == null && emplist[j] != null) {
+					}else if(emplist[i] == null && emplist[j] != null) { 
 						emplist[i] = emplist[j];
 					}else if(emplist[i] != null && emplist[j] == null) {
 						continue;
@@ -159,7 +160,7 @@ public class Company {
 			
 			System.out.println("--Printing earning statements by department--");
 			for(int k=0; k < emplist.length; k++) {
-				if (emplist[k] != null) 
+				if (emplist[k] != null) //print all the non-null elements of employee list
 				{
 					System.out.println(emplist[k]);
 				}	
@@ -184,8 +185,7 @@ public class Company {
 					{ 
 						Date dateHired1= emplist[i].getempProfile().getDateHired();
 						Date dateHired2= emplist[j].getempProfile().getDateHired();
-						
-						if(dateHired1.compareTo(dateHired2) == 1) 
+						if(dateHired1.compareTo(dateHired2) == 1) //order the employees by the dates they were hired in ascending order
 						{
 								tempEmployee = emplist[i];
 								emplist[i] = emplist[j];
@@ -193,7 +193,7 @@ public class Company {
 						}else if(dateHired1.compareTo(dateHired2) == 0) {
 							String dept1 = emplist[i].getempProfile().getDept();
 							String dept2 = emplist[j].getempProfile().getDept();
-							if(dept1.compareTo(dept2) > 0) 
+							if(dept1.compareTo(dept2) > 0) //if employees were hired on the same date, order them by department alphabetically
 							{
 									Employee tempEE = emplist[i];
 									emplist[i] = emplist[j];
@@ -201,7 +201,7 @@ public class Company {
 							}else if(dept1.compareTo(dept2) == 0) {
 								String name1 = emplist[i].getempProfile().getName();
 								String name2 = emplist[j].getempProfile().getName();
-								if(name1.compareTo(name2) > 0) {
+								if(name1.compareTo(name2) > 0) { //else if they were also hired by the same department, order them by name alphabetically
 									Employee temp = emplist[i];
 									emplist[i] = emplist[j];
 									emplist[j] = temp;
@@ -218,7 +218,7 @@ public class Company {
 			
 			System.out.println("--Printing earning statements by date hired--");
 			for(int j=0; j < emplist.length; j++) {
-				if (emplist[j] != null) 
+				if (emplist[j] != null) //print all the non-null elements of employee list
 				{
 					System.out.println(emplist[j]);
 				}
