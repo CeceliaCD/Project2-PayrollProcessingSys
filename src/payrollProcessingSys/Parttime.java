@@ -31,6 +31,13 @@ public class Parttime extends Employee {
 	}
 	
 	/**
+	@return
+	*/
+	public int getHoursWorked() {
+		return hoursWorked;
+	}
+	
+	/**
 	@param 
 	*/
 	public void setHourlyRate(double rate) {
