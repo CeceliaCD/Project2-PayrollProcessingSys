@@ -54,15 +54,15 @@ public class Company {
 		if (numEmployee % CAPACITY == 0 && numEmployee > 1) {
 			grow();
 		}
-		if (find(employee) == -1) {
+		if (find(employee) == -1) { //checking if this employee is already in the company, can only be added in if not found
 			emplist[numEmployee] = employee;
 			numEmployee++;
 			return true;
 		}
-		else {
+		else { //if the find() helper method does not result into -1, then the employee exists in the company
 			return false;
 		}
-	} //check the profile before adding 
+	}
 	
 	/**
 	@param
@@ -93,7 +93,13 @@ public class Company {
 	 
 	*/
 	public void processPayments() { //process payments for all employees
-		
+		if(numEmployee != 0) { //Checking to see that there are employees at the company
+			for(int i = 0; i < emplist.length; i++) { //search through our employee list
+				if(emplist[i] != null) { //insurance that there will be no NullPointerExceptions
+					emplist[i].calculatePayment(); //Polymorphism should take care of calculating the payment of every type of employee
+				}
+			}
+		}
 	} 
 	
 	/**
