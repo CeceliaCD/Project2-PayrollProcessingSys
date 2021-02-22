@@ -32,7 +32,7 @@ public class Employee {
 	*/
 	public String getDollarValue() {
 		String dollarValue = "";
-		return dollarValue = new DecimalFormat("$###,###.##").format(paid);
+		return dollarValue = new DecimalFormat("$###,###.##").format(getPaid());
 	}
 	
 	/**
@@ -54,7 +54,7 @@ public class Employee {
 	*/
 	@Override
 	public void calculatePayment() {
-		//getDollarValue();
+		paid = 0.0;
 	}
 	
 	

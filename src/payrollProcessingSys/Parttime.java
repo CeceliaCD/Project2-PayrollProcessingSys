@@ -7,9 +7,9 @@ import java.text.DecimalFormat;
 */
 public class Parttime extends Employee {
 	
-	private double hourlyRate;
-	private static final double OVERTIME = 1.5; //Represents time and a half regular hourly for more than 80 hours
-	private int hoursWorked; // hours that a parttimer worked, int bc paid every hour worked
+	private double hourlyRate; //how much a parttimer is paid per hour
+	private static final double OVERTIME = 1.5; //represents time and a half regular hourly for more than 80 hours
+	private int hoursWorked; //hours that a parttimer worked, int bc paid every hour worked
 	
 	/**
 	@param
@@ -56,20 +56,15 @@ public class Parttime extends Employee {
 	*/
 	@Override
 	public void calculatePayment() { 
-		//parttimeTotalHrs = new DecimalFormat("##.##");
-		//DecimalFormat payPeriod = new DecimalFormat("##.##");
-		//payPeriod =	hourlyRate * (DecimalFormat)hoursWorked;
 		int parttimeTotalHrs = 80; //The 2 week pay period
 		int hoursLimit = 100; //hours worked cannot exceed 100 hours per week
 		if(hoursWorked >= 0) {
 			double paidSalary = super.getPaid();
 			if(hoursWorked <= parttimeTotalHrs) {
 				paidSalary = hourlyRate * hoursWorked;
-				String payPeriod = new DecimalFormat("$###,###.##").format(paidSalary); //these might not be needed
 			}else if(hoursWorked > parttimeTotalHrs && hoursWorked <= hoursLimit) {
-				int overtimeDiff = hoursWorked - parttimeTotalHrs;
-				paidSalary = (hourlyRate * parttimeTotalHrs) + (OVERTIME * overtimeDiff);
-				String payPeriod = new DecimalFormat("$###,###.##").format(paidSalary); //these might not be needed
+				int overtimeDiff = hoursWorked - parttimeTotalHrs; //calculates the extra overtime hours
+				paidSalary = (hourlyRate * parttimeTotalHrs) + (OVERTIME * hourlyRate * overtimeDiff);
 			}	
 		}
 	}

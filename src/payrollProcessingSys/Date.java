@@ -165,7 +165,6 @@ public class Date implements Comparable<Date> {
 		return true;	
 	}
 	
-	//idk if we should override this as well
 	/**
 	This method obtains the month, day an year variables of
 	a date and returns a string variable to be processed and
@@ -196,25 +195,34 @@ public class Date implements Comparable<Date> {
 			return 1; //our date is greater than the given date
 		
 		return 0; //they are the same date
-		
 	}
 	
+	/**
+	We designed the test cases to thoroughly test 
+	the isValid() method in this testbed main. 
+	The Test Specifications document will exlpain
+	the purpose of each test case. With each date
+	and its respective boolean, there should either
+	be an output that prints the given date or prints
+	the string literal "Invalid Date!"
+	@param args array of String argument
+	*/
 	public static void main(String[] args) {
 		Date todaysDate = new Date();
-		System.out.println("This is today's date: " + todaysDate.getMonth() + "/" + todaysDate.getDay() + "/" + todaysDate.getYear());
+		System.out.println("This is today's date: " + todaysDate.toString());
 		
 		Date date1 = new Date("02/0/2000"); //no such thing as day 0, invalid
 		Boolean bool1 = date1.isValid();
 		if(bool1 == true) {
-			System.out.println(date1.getMonth() + "/" + date1.getDay() + "/" + date1.getYear());
+			System.out.println(date1.toString());
 		}else {
 			System.out.println("Invalid Date!");
 		}
 		
-		Date date2 = new Date("2/29/2021"); 
+		Date date2 = new Date("2/29/2021"); //should print invalid since has yet to come & 2021 isn't a leap year
 		Boolean bool2 = date2.isValid();
 		if(bool2 == true) {
-			System.out.println(date2.getMonth() + "/" + date2.getDay() + "/" + date2.getYear());
+			System.out.println(date2.toString());
 		}else {
 			System.out.println("Invalid Date!");
 		}
@@ -222,7 +230,7 @@ public class Date implements Comparable<Date> {
 		Date date3 = new Date("02/30/2000"); //should print invalid date since no such thinf as Feb 30th
 		Boolean bool3 = date3.isValid();
 		if(bool3 == true) {
-			System.out.println(date3.getMonth() + "/" + date3.getDay() + "/" + date3.getYear());
+			System.out.println(date3.toString());
 		}else {
 			System.out.println("Invalid Date!");
 		}
@@ -230,7 +238,55 @@ public class Date implements Comparable<Date> {
 		Date date4 = new Date("2/29/2008"); //was a leap year so should print out
 		Boolean bool4 = date4.isValid();
 		if(bool4 == true) {
-			System.out.println(date4.getMonth() + "/" + date4.getDay() + "/" + date4.getYear());
+			System.out.println(date4.toString());
+		}else {
+			System.out.println("Invalid Date!");
+		}
+		
+		Date date5 = new Date("10/12/1999");
+		Boolean bool5 = date5.isValid();
+		if(bool5 == true) {
+			System.out.println(date5.toString());
+		}else {
+			System.out.println("Invalid Date!");
+		}
+		
+		Date date6 = new Date("03/10/2022"); 
+		Boolean bool6 = date6.isValid();
+		if(bool6 == true) {
+			System.out.println(date6.toString());
+		}else {
+			System.out.println("Invalid Date!");
+		}
+		
+		Date date7 = new Date("06/31/2000");
+		Boolean bool7 = date7.isValid();
+		if(bool7 == true) {
+			System.out.println(date7.toString());
+		}else {
+			System.out.println("Invalid Date!");
+		}
+		
+		Date date8 = new Date("31/31/2021");
+		Boolean bool8 = date8.isValid();
+		if(bool8 == true) {
+			System.out.println(date8.toString());
+		}else {
+			System.out.println("Invalid Date!");
+		}
+		
+		Date date9 = new Date("3/31/1900");
+		Boolean bool9 = date9.isValid();
+		if(bool9 == true) {
+			System.out.println(date9.toString());
+		}else {
+			System.out.println("Invalid Date!");
+		}
+		
+		Date date11 = new Date("12/31/1899");
+		Boolean bool11 = date11.isValid();
+		if(bool11 == true) {
+			System.out.println(date11.toString());
 		}else {
 			System.out.println("Invalid Date!");
 		}
