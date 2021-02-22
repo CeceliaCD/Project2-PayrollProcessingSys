@@ -16,16 +16,6 @@ public class PayrollProcessing {
 		Scanner userInput = new Scanner(System.in);
 		Company company = new Company();
 
-		// String commandLine = userInput.nextLine();
-		// userInput.useDelimiter(" ");
-
-		// while(userInput.hasNext(commandLine)) {
-		// if(commandLine.equals("")) {
-		// System.out.println("Command" + " '" + commandLine + "' not supported!");
-		// }
-
-		// }
-
 		while (true) {
 
 			String choice = userInput.nextLine();
@@ -33,42 +23,24 @@ public class PayrollProcessing {
 			String letter = command[0];
 
 			if (letter.equals("AP")) { // add a part time employee
-				String name = command[1];
-				String dept = command[2];
-				Date dateHired = new Date(command[3]);
-				double wage = Double.parseDouble(command[4]);
-
-				if (dateHired.isValid() == true) {
-					Profile prof = new Profile();
-					prof.setName(name);
-					prof.setDepartment(dept);
-					prof.setDateHired(dateHired);
-					Parttime parttimer = new Parttime(prof, 0, wage, 0);
-
-					//if (company.add(parttimer) == true) {
-						System.out.println("add: " + company.add(parttimer));
+				if (new Date(command[3]).isValid() == true) {
+					Profile prof = setProfile(command[1], command[2], new Date(command[3]));
+					Parttime parttimer = new Parttime(prof, 0, Double.parseDouble(command[4]), 0);
+					
+					if (company.add(parttimer) == true) {
 						System.out.println("Employee added.");
-						System.out.println("partime: " + parttimer);
-					//} else {
-					//	System.out.println("Employee is already in the list");
-					//}
+					} else {
+						System.out.println("Employee is already in the list.");
+					}
 				} else {
 					System.out.println("Invalid date!");
 				}
 			}
 
 			if (letter.equals("AF")) { // add a full time employee
-				String name = command[1];
-				String dept = command[2];
-				Date dateHired = new Date(command[3]);
-				double salary = Double.parseDouble(command[4]);
-
-				if (dateHired.isValid() == true) {
-					Profile prof = new Profile();
-					prof.setName(name);
-					prof.setDepartment(dept);
-					prof.setDateHired(dateHired);
-					Fulltime fulltimer = new Fulltime(prof, 0, salary);
+				if (new Date(command[3]).isValid() == true) {
+					Profile prof = setProfile(command[1], command[2], new Date(command[3]));
+					Fulltime fulltimer = new Fulltime(prof, 0, Double.parseDouble(command[4]));
 
 					if (company.add(fulltimer) == true) {
 						System.out.println("Employee added.");
@@ -85,15 +57,39 @@ public class PayrollProcessing {
 			}
 
 			if (letter.equals("R")) { // remove an employee
+				if (new Date(command[3]).isValid() == true) {
+					Profile prof = setProfile(command[1], command[2], new Date(command[3]));
+					Employee emp = new Employee(prof, 0);
 
+					if (company.remove(emp) == true) {
+						System.out.println("Employee removed.");
+					} else {
+						System.out.println("Employee does not exist.");
+					}
+				} else {
+					System.out.println("Invalid date!");
+				}
 			}
+			
 
 			if (letter.equals("C")) { // calculate payments for all employees
 
 			}
 
 			if (letter.equals("S")) { // set the working hours
+				if (new Date(command[3]).isValid() == true) {
+					Profile prof = setProfile(command[1], command[2], new Date(command[3]));
+					Parttime parttimer = new Parttime(prof, 0, 0, 0);
+					parttimer.setHoursWorked(Integer.parseInt(command[4]));
 
+					if (company.setHours(parttimer) == true) {
+						System.out.println("Working hours set.");
+					} else {
+						System.out.println("Employee does not exist.");
+					}
+				} else {
+					System.out.println("Invalid date!");
+				}
 			}
 
 			if (letter.equals("PA")) { // print earning statements for all employees
@@ -110,10 +106,18 @@ public class PayrollProcessing {
 
 			if (letter.equals("Q")) {
 				System.out.println("Payroll Processing Completed.");
-				System.exit(0); // change this
+				System.exit(0);
 			}
 
 		}
 
+	}
+
+	public Profile setProfile(String name, String dept, Date dateHired) {
+		Profile prof = new Profile();
+		prof.setName(name);
+		prof.setDept(dept);
+		prof.setDateHired(dateHired);
+		return prof;
 	}
 }
