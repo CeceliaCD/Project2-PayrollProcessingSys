@@ -73,7 +73,8 @@ public class Profile {
 		}
 		Profile objProfile = (Profile) obj;
 		if (this.name.equals(objProfile.name) && 
-				this.department.equals(objProfile.department) && this.dateHired.equals(objProfile.dateHired)) {
+				this.department.equals(objProfile.department)&& objProfile.dateHired.getYear()==this.dateHired.getYear()
+	                    && objProfile.dateHired.getMonth()==this.dateHired.getMonth() && objProfile.dateHired.getDay()==this.dateHired.getDay()) {
 			return true;
 		}
 		return false;
