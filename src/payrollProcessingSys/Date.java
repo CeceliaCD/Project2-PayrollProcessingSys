@@ -182,18 +182,19 @@ public class Date implements Comparable<Date> {
 	public int compareTo(Date date) { //return 1, 0, or -1 
 		int lessThan = -1;
 		
-		//first check year, then check month, then day
-		if(year < date.year || (year < date.year && month < date.month) || 
-				(year < date.year && month < date.month && day < date.day) || 
-				(year == date.year && month == date.month && day < date.day)) 
-			return lessThan; //our date is less than the given date
-		
-		if(year > date.year || (year > date.year && month > date.month) || 
-				(year > date.year && month > date.month && day > date.day) || 
-				(year == date.year && month == date.month && day > date.day)) 
-			return 1; //our date is greater than the given date
-		
-		return 0; //they are the same date
+		if(year == date.year && month == date.month && day == date.day){
+			return 0; //they are the same date
+		}
+		if(year > date.year) {
+			return 1;
+		}
+		if((year == date.year) && (month > date.month)){
+			return 1;
+		}
+		if((year == date.year) && (month == date.month) && (day > date.day)){
+			return 1; 
+		}
+		return lessThan;
 	}
 	
 	/**
