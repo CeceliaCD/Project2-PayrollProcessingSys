@@ -54,7 +54,7 @@ public class PayrollProcessing {
 					} else {
 						System.out.println("Employee is already on the list.");
 					}
-				} else {
+				} else if (wage < 0) {
 					System.out.println("Pay rate cannot be negative.");
 				}
 
@@ -74,7 +74,7 @@ public class PayrollProcessing {
 						System.out.println("Employee is already on the list.");
 					}
 
-				} else {
+				} else if (salary < 0) {
 					System.out.println("Salary cannot be negative.");
 				}
 			}
@@ -96,7 +96,7 @@ public class PayrollProcessing {
 							System.out.println("Employee is already in the list.");
 						}
 					}
-				} else {
+				} else if (salary < 0) {
 					System.out.print("Salary cannot be negative.");
 				}
 			}
