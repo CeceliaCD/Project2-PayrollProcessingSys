@@ -8,17 +8,10 @@ import java.util.StringTokenizer;
  * exceptions, accepts command, and gives back the appropriate output for each.
  * Once the driver class is ran, it goes through this class with the following
  * commands.
- * 
  * @author Ceceliachollette-Dickson, Nidaansari
  */
 public class PayrollProcessing {
 
-	// IMPORTANT: NIDA WE DON'T NEED HELPER METHODS, BUT USE THE GETTERS AND SETTERS
-	// FROM EACH EMPLOYEE CLASS. THEY HAVE TO BE USED OTHERWISE WE LOSE POINTS
-	// FOR UNUSED CODE.
-	// Btw a setter is not needed for bonus, managers' add comp just gets split into
-	// 26
-	// and that is already done
 	/**
 	 * The run method is responsible for obtaining the input that the user gives in
 	 * as a string and breaking it apart. First the command is obtained and based on
@@ -183,6 +176,12 @@ public class PayrollProcessing {
 		return prof;
 	}
 
+	/**
+	Checks if the date and department name are valid dates and
+	existing departments.
+	@param the date object given and string name of their department
+	@return true if they are valid, false otherwise
+	*/
 	public boolean checkValid(Date date, String dept) {
 		if (date.isValid() == false) {
 			System.out.println(date + " is not a valid date!");

@@ -31,8 +31,8 @@ public class CompanyTest {
 		Fulltime fulltimer = new Fulltime(prof, 0, 80000.00);
 		
 		
-		Parttime parttimer = new Parttime();
-		Management manageRole = new Management();
+		//Parttime parttimer = new Parttime();
+		//Management manageRole = new Management();
 		fail("Not yet implemented");
 	}
 
