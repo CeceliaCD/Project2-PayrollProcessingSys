@@ -15,7 +15,6 @@ public class Employee {
 	
 	private Profile empProfile = new Profile(); //profile that uniquely identifies each employee
 	private double paid = 0.0;
-	private String dollarValue = new DecimalFormat("$###,##0.00").format(paid);
 	
 	/**
 	This constructor helps intialize employee objects.
@@ -51,7 +50,8 @@ public class Employee {
 	@return the string of the final calculated payment in decimal format
 	*/
 	public String getDollarValue() {
-		return dollarValue;
+		String dollarValue = "";
+		return dollarValue = new DecimalFormat("$###,##0.00").format(getPaid());
 	}
 	
 	/**
@@ -64,20 +64,10 @@ public class Employee {
 	}
 	
 	/**
-	Setter method that sets the payment that was received by the employee
-	this pay period in decimal format and gives it dollar currency.
-	@param the string of the final calculation of this period's payment
-	*/
-	public void setDollarValue(String dVal) {
-		this.dollarValue = dVal;
-	}
-	
-	/**
 	According to the type of employee, calculates the earnings for the pay period. 
 	*/
-	@Override
 	public void calculatePayment() {
-		getPaid();
+		getDollarValue();
 	}
 	
 	/**
@@ -87,6 +77,7 @@ public class Employee {
 	*/
 	@Override
 	public String toString() { 
+		calculatePayment();
 		return empProfile.toString() + "::Payment " + getDollarValue();
 	}
 	
@@ -105,7 +96,7 @@ public class Employee {
 			return false;
 		}
 		Employee objEmp = (Employee) obj;
-		if (this.empProfile.equals(objEmp.empProfile) && this.paid == objEmp.paid) {
+		if (this.empProfile.equals(objEmp.empProfile)) {
 			return true;
 		}
 		return false;

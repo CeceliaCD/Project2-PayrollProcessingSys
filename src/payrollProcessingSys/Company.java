@@ -106,10 +106,26 @@ public class Company {
 	 
 	*/
 	public void processPayments() { //process payments for all employees
-		if(numEmployee != 0) { //Checking to see that there are employees at the company
+		if(numEmployee > 0) { //Checking to see that there are employees at the company
 			for(int i = 0; i < emplist.length; i++) { //search through our employee list
 				if(emplist[i] != null) { //insurance that there will be no NullPointerExceptions
-					emplist[i].calculatePayment(); //Polymorphism should take care of calculating the payment of every type of employee
+					if(emplist[i].getPaid() == 0) {
+						/*if(emplist[i] instanceof Fulltime) {
+							if(emplist[i] instanceof Management) {
+								Management manage = (Management) emplist[i];
+								manage.calculatePayment();
+							}else {
+							Fulltime fulltimer = (Fulltime) emplist[i];
+							fulltimer.calculatePayment();
+							}
+						}
+						*/
+						emplist[i].calculatePayment(); //Polymorphism should take care of calculating the payment of every type of employee	
+						
+					}//else if(emplist[i] instanceof Parttime) {
+					//	Parttime parttimer = (Parttime) emplist[i];
+					//	parttimer.calculatePayment();
+					//}
 				}
 			}
 		}
