@@ -23,17 +23,20 @@ public class PayrollProcessing {
 			String letter = command[0];
 
 			if (letter.equals("AP")) { // add a part time employee
-				if (new Date(command[3]).isValid() == true) {
-					Profile prof = setProfile(command[1], command[2], new Date(command[3]));
+				Date date = new Date(command[3]);
+				if (date.isValid() == false) {
+					System.out.println(date + " is not a valid date!");
+				} else if (!"CS".equals(command[2]) && !"ECE".equals(command[2]) && !"IT".equals(command[2])) {
+					System.out.println("Invalid department code.");
+				} else {
+					Profile prof = setProfile(command[1], command[2], date);
 					Parttime parttimer = new Parttime(prof, 0, Double.parseDouble(command[4]), 0);
-					
 					if (company.add(parttimer) == true) {
 						System.out.println("Employee added.");
 					} else {
 						System.out.println("Employee is already in the list.");
 					}
-				} else {
-					System.out.println("Invalid date!");
+
 				}
 			}
 
@@ -53,7 +56,22 @@ public class PayrollProcessing {
 			}
 
 			if (letter.equals("AM")) { // add a full time manager
+				Date date = new Date(command[3]);
+				int role = Integer.parseInt(command[5]);
+				if (date.isValid() == false) {
+					System.out.println(date + " is not a valid date!");
+				}
+				// else if ();
+				Profile prof = setProfile(command[1], command[2], date);
+				Management parttimer = new Management(prof, 0, Double.parseDouble(command[4]), role, 0);
 
+				if (company.add(parttimer) == true) {
+					System.out.println("Employee added.");
+				} else {
+					System.out.println("Employee is already in the list.");
+				}
+			} else {
+				System.out.println(date + " is not a valid date!");
 			}
 
 			if (letter.equals("R")) { // remove an employee
@@ -73,7 +91,8 @@ public class PayrollProcessing {
 			
 
 			if (letter.equals("C")) { // calculate payments for all employees
-
+				company.processPayments();
+				System.out.println("Calculation of employee payments is done.");
 			}
 
 			if (letter.equals("S")) { // set the working hours
