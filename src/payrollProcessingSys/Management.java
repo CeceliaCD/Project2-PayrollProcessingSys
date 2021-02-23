@@ -38,6 +38,18 @@ public class Management extends Fulltime {
 	@return the double value of the employee's bonus
 	*/
 	public double getBonus() {
+		int totalPayPeriods = super.getFTPayPeriods();
+		double managercomp = 5000.00; //1 additional compensation annually
+		double deptheadcomp = 9500.00; //2 aditional compensation annually
+		double directorcomp = 12000.00; //3 additional compensation annually
+		
+		if(role == manager) {
+			bonus = managercomp/totalPayPeriods;
+		}else if(role == deptHead) {
+			bonus = deptheadcomp/totalPayPeriods;
+		}else if(role == director) {
+			bonus = directorcomp/totalPayPeriods;
+		}
 		return bonus;
 	}
 	
@@ -47,7 +59,7 @@ public class Management extends Fulltime {
 	*/
 	public String getTheBonus() {
 		String theBonus = "";
-		return theBonus = new DecimalFormat("$##,###.00").format(bonus);
+		return theBonus = new DecimalFormat("$##,##0.00").format(getBonus());
 	}
 	
 	/**
@@ -56,14 +68,6 @@ public class Management extends Fulltime {
 	*/
 	public int getRole() { 
 		return role;
-	}
-	
-	/**
-	Setter method to set the bonus for an employee during the current pay period.
-	@param double value of the bonus that an employee of a managerial role is given
-	*/
-	public void setBonus(double theBonus) {
-		this.bonus = theBonus;
 	}
 	
 	/**
@@ -79,9 +83,6 @@ public class Management extends Fulltime {
 	*/
 	@Override
 	public void calculatePayment() { 
-		double managercomp = 5000.00; //1 additional compensation annually
-		double deptheadcomp = 9500.00; //2 aditional compensation annually
-		double directorcomp = 12000.00; //3 additional compensation annually
 		double thePay = super.getPaid();
 		double annSalary = super.getAnnualSalary();
 		int totalPayPeriods = super.getFTPayPeriods();
@@ -89,27 +90,18 @@ public class Management extends Fulltime {
 	
 		if(role == manager) {
 			if(payCounter != totalPayPeriods) { //too ensure we cannot have more than 26 pay periods in year
-				if(bonus <= managercomp) { //additional comp for specific role for each pay period cannot be more than total annual
-					thePay = (annSalary/ totalPayPeriods) + bonus; 
-					managercomp = managercomp - bonus; //after managerial employee paid part of add comp, what they can be paid for the rest of the year decrements by how much they were paid 
-					payCounter++;	
-				}
+				thePay = (annSalary/ totalPayPeriods) + getBonus(); 
+				payCounter++;	
 			}
 		}else if(role == deptHead) {
 			if(payCounter != totalPayPeriods) {
-				if(bonus <= deptheadcomp) {
-					thePay = (annSalary/ totalPayPeriods) + bonus; 
-					deptheadcomp = deptheadcomp - bonus;
-					payCounter++;
-				}
+				thePay = (annSalary/ totalPayPeriods) + getBonus(); 
+				payCounter++;
 			}
 		}else if(role == director){
 			if(payCounter != totalPayPeriods) {
-				if(bonus <= directorcomp) {
-					thePay = (annSalary/ totalPayPeriods) + bonus;
-					directorcomp = directorcomp - bonus;
-					payCounter++;	
-				}	
+				thePay = (annSalary/ totalPayPeriods) + getBonus();
+				payCounter++;		
 			}
 		}
 		super.setPaid(thePay);

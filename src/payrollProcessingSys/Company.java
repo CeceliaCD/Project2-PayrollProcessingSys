@@ -1,24 +1,29 @@
 package payrollProcessingSys;
 
 /**
+The company class is responsible for all the changes that
+happens within the employee list. It contains helper methods
+as well as methods used to be called when a user inputs a command.
 @author Ceceliachollette-Dickson, Nidaansari
 */
 public class Company {
-	private Employee[] emplist; 
-	private int numEmployee;
-	private int CAPACITY = 4;
+	private Employee[] emplist; //company list of employees
+	private int numEmployee; //total number of employees currently in company list
+	private int CAPACITY = 4; //intial size of company list, as well as the rate at which it grows by
 	
 	/**
-	 
+	The default constructor to make empty employee system.
 	*/
-	public Company() { //default constructor to make empty employee system
-		this.emplist = new Employee[CAPACITY];
-		this.numEmployee = 0;
+	public Company() {
+		this.emplist = new Employee[CAPACITY]; //initial length of 4
+		this.numEmployee = 0; //no employees in company yet
 	}
 	
 	/**
-	@param
-	@return 
+	A helper method used within the public methods in 
+	this class to find the index of a requested employee.
+	@param the employee object being searched for
+	@return the integer value representing the index at which the employee is located
 	*/
 	private int find(Employee employee) {
 		for (int i = 0; i < emplist.length; i++) 
@@ -36,7 +41,8 @@ public class Company {
 	}
 	
 	/**
-	 
+	A helper method we use in the add() method to grow
+	the array everytime it reaches maximum capacity. 
 	*/
 	private void grow() { 
 		Employee[] temp = new Employee[emplist.length + 4];
@@ -47,8 +53,10 @@ public class Company {
 	}
 	
 	/**
-	@param
-	@return 
+	This method adds employees to our employee array. It calls
+	both the grow() and find() helper methods.
+	@param the employee object being added
+	@return true if the employee was added to the array, false otherwise
 	*/
 	public boolean add(Employee employee) { // need to determine if employee is PT FT or M
 		if (numEmployee % CAPACITY == 0 && numEmployee > 1) {
@@ -65,8 +73,11 @@ public class Company {
 	}
 	
 	/**
-	@param
-	@return 
+	This method deletes a given employee from the array.
+	It calls the find() helper method to make it easier 
+	to find the index of the meployee that needs to be removed.
+	@param the employee object being removed
+	@return true if the employee has been removed, false otherwise
 	*/
 	public boolean remove(Employee employee) { // might have to change
 		int rNum = find(employee);
@@ -78,12 +89,16 @@ public class Company {
 		}
 		emplist[numEmployee - 1] = null;
 		numEmployee--;
-		return true;
-	} //maintain the original sequence 
+		return true; //maintain the original sequence 
+	} 
 	
 	/**
-	@param
-	@return 
+	This method sets the hours that a parttime employee has worked
+	during the pay period. Necessary to call before the periods 
+	payments are calculated, otherwise some parttimers are going
+	home with no money.
+	@param the employee that is also of type parttime
+	@return true if the employee's hours for this period has been set, false otherwise
 	*/
 	public boolean setHours(Employee employee) { // set working hours for a part time
 		int emp = find(employee);
@@ -103,36 +118,22 @@ public class Company {
 	}
 	
 	/**
-	 
+	This method is to be called in the PayrollProcessing class when a
+	user commands the program to give the employees their bi-weekly
+	payments. 
 	*/
 	public void processPayments() { //process payments for all employees
 		if(numEmployee > 0) { //Checking to see that there are employees at the company
 			for(int i = 0; i < emplist.length; i++) { //search through our employee list
-				if(emplist[i] != null) { //insurance that there will be no NullPointerExceptions
-					if(emplist[i].getPaid() == 0) {
-						/*if(emplist[i] instanceof Fulltime) {
-							if(emplist[i] instanceof Management) {
-								Management manage = (Management) emplist[i];
-								manage.calculatePayment();
-							}else {
-							Fulltime fulltimer = (Fulltime) emplist[i];
-							fulltimer.calculatePayment();
-							}
-						}
-						*/
+				if(emplist[i] != null) { //assurance that there will be no NullPointerExceptions
 						emplist[i].calculatePayment(); //Polymorphism should take care of calculating the payment of every type of employee	
-						
-					}//else if(emplist[i] instanceof Parttime) {
-					//	Parttime parttimer = (Parttime) emplist[i];
-					//	parttimer.calculatePayment();
-					//}
 				}
 			}
 		}
 	} 
 	
 	/**
- 
+ 	This method is invoked to print the current state of the employee list.
 	*/
 	public void print() { //print earning statements for all employees
 		if(numEmployee != 0) {
@@ -150,7 +151,8 @@ public class Company {
 	} 
 	
 	/**
-	
+	This method is invoked to print the employee list by department in 
+	alphabetical order.
 	*/
 	public void printByDepartment() { //print earning statements by department 
 		if(numEmployee != 0) {
@@ -200,7 +202,8 @@ public class Company {
 	} 
 	
 	/**
-	
+	This method is invoked to print the employee list by the dates each 
+	employee was hired in ascending order.
 	*/
 	public void printByDate() { //print earning statements by date hired
 		if(numEmployee != 0) {

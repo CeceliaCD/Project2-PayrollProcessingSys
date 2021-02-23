@@ -4,12 +4,19 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
- * @author Ceceliachollette-Dickson, Nidaansari
- */
+The PayrollProcessing class is responsible for majority 
+of the input exceptions, accepts command, and gives back 
+the appropriate output for each. Once the driver class is
+ran, it goes through this class with the following commands. 
+@author Ceceliachollette-Dickson, Nidaansari
+*/
 public class PayrollProcessing {
 
 	/**
-	 
+	The run method is responsible for obtaining the input that the user gives in
+	as a string and breaking it apart. First the command is obtained and based on
+	that input, and whatever other input that should follow it, to discern the 
+	correct ouptut. 
 	*/
 	public void run() {
 

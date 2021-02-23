@@ -67,7 +67,7 @@ public class Employee {
 	According to the type of employee, calculates the earnings for the pay period. 
 	*/
 	public void calculatePayment() {
-		setPaid(paid);
+		
 	}
 	
 	/**
@@ -77,7 +77,6 @@ public class Employee {
 	*/
 	@Override
 	public String toString() { 
-		calculatePayment();
 		return empProfile.toString() + "::Payment " + getDollarValue();
 	}
 	
