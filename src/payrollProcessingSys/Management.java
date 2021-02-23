@@ -26,11 +26,10 @@ public class Management extends Fulltime {
 	employee with a managerial role must have.
 	@param profile consisting of employee's name, department and date of hire, along with what they're paid each period, annual salary, and managerial role
 	*/
-	public Management(Profile eProfile, double thePay, double annSalary, int theRole, double theBonus) {
+	public Management(Profile eProfile, double thePay, double annSalary, int theRole) {
 		// TODO Auto-generated constructor stub
 		super(eProfile, thePay, annSalary);
 		this.role = theRole;
-		this.bonus = theBonus;
 	}
 	
 	/**

@@ -11,7 +11,12 @@ ran, it goes through this class with the following commands.
 @author Ceceliachollette-Dickson, Nidaansari
 */
 public class PayrollProcessing {
-
+	
+	//IMPORTANT: NIDA WE DON'T NEED HELPER METHODS, BUT USE THE GETTERS AND SETTERS
+	//FROM EACH EMPLOYEE CLASS. THEY HAVE TO BE USED OTHERWISE WE LOSE POINTS
+	//FOR UNUSED CODE.
+	//Btw a setter is not needed for bonus, managers' add comp just gets split into 26
+	//and that is already done
 	/**
 	The run method is responsible for obtaining the input that the user gives in
 	as a string and breaking it apart. First the command is obtained and based on
@@ -72,7 +77,7 @@ public class PayrollProcessing {
 				}
 				// else if ();
 				Profile prof = setProfile(command[1], command[2], date);
-				Management parttimer = new Management(prof, 0, Double.parseDouble(command[4]), role, 0);
+				Management parttimer = new Management(prof, 0, Double.parseDouble(command[4]), role);
 
 				if (company.add(parttimer) == true) {
 					System.out.println("Employee added.");

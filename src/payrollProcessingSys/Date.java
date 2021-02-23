@@ -179,6 +179,9 @@ public class Date implements Comparable<Date> {
 	}
 
 	/**
+	This method is what implements the Comparable functional interface.
+	We are comparing the values of the dates so that they could follow
+	and be compared to relative to real time.
 	@param date is the Date type being compared to another date
     @return 1 if our date is lexicographically greater, -1 if otherwise, 0 if they are equal
 	*/
