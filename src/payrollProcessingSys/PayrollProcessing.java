@@ -139,11 +139,15 @@ public class PayrollProcessing {
 				System.out.println("Payroll Processing Completed.");
 				System.exit(0);
 			}
-
 		}
-
 	}
 
+	/**
+	Setter method that sets the the attributes of a profile object
+	for an employee.
+	@param the string name, department and date that an employee was hired
+	@return profile object
+	*/
 	public Profile setProfile(String name, String dept, Date dateHired) {
 		Profile prof = new Profile();
 		prof.setName(name);
@@ -151,4 +155,5 @@ public class PayrollProcessing {
 		prof.setDateHired(dateHired);
 		return prof;
 	}
+
 }

@@ -101,13 +101,17 @@ public class Company {
 	@return true if the employee's hours for this period has been set, false otherwise
 	*/
 	public boolean setHours(Employee employee) { // set working hours for a part time
+		int limit = 100;
 		int emp = find(employee);
 		if (emp == -1) {
 			return false;
 		} else {
 			if (emplist[emp] instanceof Parttime) {
 				Parttime parttimeEmp = (Parttime) employee;
-				int hoursWorked = parttimeEmp.getHoursWorked();				
+				int hoursWorked = parttimeEmp.getHoursWorked();
+				if(hoursWorked < 0 || hoursWorked > limit) {
+					return false;
+				}
 				Parttime parttimer = (Parttime) emplist[emp];
 				parttimer.setHoursWorked(hoursWorked);
 				return true;

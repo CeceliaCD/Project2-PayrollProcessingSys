@@ -55,6 +55,15 @@ public class Employee {
 	}
 	
 	/**
+	Setter method that sets the profile object that contains the 
+	employees name, department, and date hired.
+	@param the object of type profile
+	*/
+	public void setempProfile(Profile emp) {
+		this.empProfile = emp;
+	}
+	
+	/**
 	Setter method that sets the payment that was received by the employee
 	this pay period.
 	@param the double of the final calculation of this period's payment
