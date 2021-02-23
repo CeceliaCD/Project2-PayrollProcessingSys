@@ -183,8 +183,6 @@ public class PayrollProcessing {
 		return prof;
 	}
 
-<<<<<<< HEAD
-=======
 	public boolean checkValid(Date date, String dept) {
 		if (date.isValid() == false) {
 			System.out.println(date + " is not a valid date!");
@@ -196,5 +194,4 @@ public class PayrollProcessing {
 		return true;
 	}
 
->>>>>>> 4f62f94e57805e6a805eade249bbcba4f9eff097
 }
