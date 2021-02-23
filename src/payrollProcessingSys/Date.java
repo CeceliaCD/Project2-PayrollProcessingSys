@@ -74,6 +74,32 @@ public class Date implements Comparable<Date> {
 	}
 	
 	/**
+	A helper method used to make it easier to discern if a year
+	is a leap year, which means an extra day for February,
+	or not.
+	@param an integer that represents the date's year
+	@return boolean true if the year is a leap year, false otherwise
+	*/
+	private boolean isLeapYear(int year) {
+		boolean leapyr = false;
+		
+		if(year%QUAD != 0) { //not leap year
+				
+			return leapyr;
+		}else if(year%CENT != 0) { //leap year
+				
+			leapyr = true;		
+		}else if(year%QUAD == 0 && year%CENT == 0 && year%QUATER == 0) { //leap year
+				
+			leapyr = true;
+		}else if(year%QUATER == 0) { //leap year 
+			
+			leapyr = true;
+		}
+		return leapyr;
+	}
+	
+	/**
 	This method is used to help verify that the date given,
 	which is representing when an employee was hired, is not
 	imaginary/impossible or even older than from 1900.
@@ -83,8 +109,8 @@ public class Date implements Comparable<Date> {
 		
 		Calendar cal = Calendar.getInstance();
 		int oldestPublishedyr = 1900; //the oldest hire year allowed
-		int lastDayFeb = 28; //last day of February in a non-leap year
-		int lastDayFebLeap = 29; //last day of February in a leap year
+		int lastDayFeb = 28;
+		int lastDayFebLeap = 29;
 		int monthsEnd = 30;
 		int largestMonthsEnd = 31;
 		
@@ -97,8 +123,6 @@ public class Date implements Comparable<Date> {
 			return false; 
 		}
 		
-		
-		
 		if(month > currDate.getMonth() && year == currDate.getYear()) //MONTH check
 		{ 
 			return false; 
@@ -107,23 +131,16 @@ public class Date implements Comparable<Date> {
 			return false;
 		}	
 	
-		
-		if(year <= currDate.getYear() && (month == cal.get(Calendar.JANUARY+1) || month == cal.get(Calendar.MARCH+1) 
-				|| month == cal.get(Calendar.MAY+1) || month == cal.get(Calendar.JULY+1) || month == cal.get(Calendar.AUGUST+1) 
-				|| month == cal.get(Calendar.OCTOBER+1) || month == cal.get(Calendar.DECEMBER+1)) 
-				&& (day < cal.getMinimum(Calendar.DAY_OF_MONTH) || day > largestMonthsEnd)) //Making sure the range of days for these months are 31 
-		{
+		if(year <= currDate.getYear() && (month == Calendar.JANUARY+1 || month == Calendar.MARCH+1 
+				|| month == Calendar.MAY+1 || month == Calendar.JULY+1 || month == Calendar.AUGUST+1 
+				|| month == Calendar.OCTOBER+1 || month == Calendar.DECEMBER+1) 
+				&& (day < cal.getMinimum(Calendar.DAY_OF_MONTH) || day > largestMonthsEnd)) { //Making sure the range of days for these months are 31
 				return false;
-		}
-		
-		
-		if(year <= currDate.getYear() && (month == cal.get(Calendar.APRIL+1) || month == cal.get(Calendar.JUNE+1) 
-				|| month == cal.get(Calendar.SEPTEMBER+1) || month == cal.get(Calendar.NOVEMBER+1))
-				&& (day < cal.getMinimum(Calendar.DAY_OF_MONTH) || day > monthsEnd)) //Making sure the range of days for these months are 30
-		{
+		} else if(year <= currDate.getYear() && (month == Calendar.APRIL+1 || month == Calendar.JUNE+1
+				|| month == Calendar.SEPTEMBER+1 || month == Calendar.NOVEMBER+1) 
+				&& (day < cal.getMinimum(Calendar.DAY_OF_MONTH) || day > monthsEnd)) { //Making sure the range of days for these months are 30
 				return false;
-		}
-		
+		} 
 		
 		if((day > currDate.getDay() || day > cal.getMaximum(Calendar.DAY_OF_MONTH)) && year == currDate.getYear()) { //DAY check
 			
@@ -133,21 +150,11 @@ public class Date implements Comparable<Date> {
 			return false;
 		}
 		
-		if(year%QUAD != 0 && (month == cal.get(Calendar.FEBRUARY+1) 
-				&& (day < cal.getActualMinimum(Calendar.DAY_OF_MONTH) || day > lastDayFeb))) { //non-leap year test
-				
+		if(isLeapYear(year) == false && month == Calendar.FEBRUARY+1
+				&& (day < cal.getActualMinimum(Calendar.DAY_OF_MONTH) || day > lastDayFeb)) {
 			return false;
-		}else if(year%CENT != 0 && (month == cal.get(Calendar.FEBRUARY+1) 
-				&& (day < cal.getActualMinimum(Calendar.DAY_OF_MONTH) || day > lastDayFebLeap))) { //leap year test
-				
-			return false;		
-		}else if((day < cal.getActualMinimum(Calendar.DAY_OF_MONTH) || day > lastDayFebLeap) 
-				 && (year%QUAD == 0 && year%CENT == 0 && year%QUATER == 0) && month == cal.get(Calendar.FEBRUARY+1)) { //leap year test
-				
-			return false;
-		}else if((day < cal.getActualMinimum(Calendar.DAY_OF_MONTH) || day > lastDayFebLeap)
-				&& year%QUATER == 0 && month == cal.get(Calendar.FEBRUARY+1)) { //leap year test
-			
+		}else if(isLeapYear(year) == true && month == Calendar.FEBRUARY+1
+				&& (day < cal.getActualMinimum(Calendar.DAY_OF_MONTH) || day > lastDayFebLeap)) {
 			return false;
 		}
 			
@@ -203,7 +210,7 @@ public class Date implements Comparable<Date> {
 		Date todaysDate = new Date();
 		System.out.println("This is today's date: " + todaysDate.toString());
 		
-		Date date1 = new Date("02/0/2000"); //no such thing as day 0, invalid
+		Date date1 = new Date("01/0/2000"); //no such thing as day 0, invalid
 		Boolean bool1 = date1.isValid();
 		if(bool1 == true) {
 			System.out.println(date1.toString());
@@ -251,7 +258,7 @@ public class Date implements Comparable<Date> {
 			System.out.println("Invalid Date!");
 		}
 		
-		Date date7 = new Date("06/31/2000"); //invalid
+		Date date7 = new Date("06/31/2000"); //invalid June only has 30 days
 		Boolean bool7 = date7.isValid();
 		if(bool7 == true) {
 			System.out.println(date7.toString());
