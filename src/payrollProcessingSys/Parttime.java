@@ -81,13 +81,14 @@ public class Parttime extends Employee {
 		int parttimeTotalHrs = 80; //The 2 week pay period
 		int hoursLimit = 100; //hours worked cannot exceed 100 hours per week
 		if(hoursWorked >= 0) {
-			double paidSalary = super.getPaid();
+			double thePay = super.getPaid();
 			if(hoursWorked <= parttimeTotalHrs) {
-				paidSalary = hourlyRate * hoursWorked;
+				thePay = hourlyRate * hoursWorked;
 			}else if(hoursWorked > parttimeTotalHrs && hoursWorked <= hoursLimit) {
 				int overtimeDiff = hoursWorked - parttimeTotalHrs; //calculates the extra overtime hours
-				paidSalary = (hourlyRate * parttimeTotalHrs) + (OVERTIME * hourlyRate * overtimeDiff);
-			}	
+				thePay = (hourlyRate * parttimeTotalHrs) + (OVERTIME * hourlyRate * overtimeDiff);
+			}
+			super.setPaid(thePay);
 		}
 	}
 	

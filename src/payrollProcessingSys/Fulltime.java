@@ -66,6 +66,7 @@ public class Fulltime extends Employee {
 	public void calculatePayment() {
 		double thePay = super.getPaid();
 		thePay = annualSalary/fulltimepayperiods;
+		super.setPaid(thePay);
 	}
 	
 	/**

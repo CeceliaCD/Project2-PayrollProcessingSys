@@ -14,7 +14,7 @@ actions that the command expects.
 public class Employee {
 	
 	private Profile empProfile = new Profile(); //profile that uniquely identifies each employee
-	private double paid = 0.0;
+	private double paid;
 	
 	/**
 	This constructor helps intialize employee objects.
@@ -67,7 +67,7 @@ public class Employee {
 	According to the type of employee, calculates the earnings for the pay period. 
 	*/
 	public void calculatePayment() {
-		getDollarValue();
+		setPaid(paid);
 	}
 	
 	/**

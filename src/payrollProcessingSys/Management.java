@@ -111,7 +111,8 @@ public class Management extends Fulltime {
 					payCounter++;	
 				}	
 			}
-		}	
+		}
+		super.setPaid(thePay);
 	}
 	
 	/**
