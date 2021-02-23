@@ -117,9 +117,9 @@ public class Management extends Fulltime {
 		if(getRole() == manager) {
 			roleOutput = super.toString() + "::Manager Compensation " + getTheBonus(); 
 		}else if(getRole() == deptHead) {
-			roleOutput = super.toString() + "::Director Compensation " + getTheBonus();
-		}else if(getRole() == director) {
 			roleOutput = super.toString() + "::DepartmentHead Compensation " + getTheBonus();
+		}else if(getRole() == director) {
+			roleOutput = super.toString() + "::Director Compensation " + getTheBonus();
 		}
 		return roleOutput;
 	}
