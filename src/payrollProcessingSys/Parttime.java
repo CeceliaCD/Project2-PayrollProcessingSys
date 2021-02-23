@@ -43,7 +43,7 @@ public class Parttime extends Employee {
 	*/
 	public String getHourlyRate() {
 		String hrlyRate = ""; 
-		return hrlyRate = new DecimalFormat("$##.##").format(hourlyRate);
+		return hrlyRate = new DecimalFormat("$##.00").format(hourlyRate);
 		
 	}
 	

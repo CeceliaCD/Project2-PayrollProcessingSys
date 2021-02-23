@@ -16,8 +16,9 @@ public class PayrollProcessing {
 		Scanner userInput = new Scanner(System.in);
 		Company company = new Company();
 
+		System.out.println("Payroll Processing starts.");
 		while (true) {
-
+			
 			String choice = userInput.nextLine();
 			String[] command = choice.split(" ");
 			String letter = command[0];
@@ -54,6 +55,7 @@ public class PayrollProcessing {
 					System.out.println("Invalid date!");
 				}
 			}
+			
 
 			if (letter.equals("AM")) { // add a full time manager
 				Date date = new Date(command[3]);
@@ -70,8 +72,6 @@ public class PayrollProcessing {
 				} else {
 					System.out.println("Employee is already in the list.");
 				}
-			} else {
-				System.out.println(date + " is not a valid date!");
 			}
 
 			if (letter.equals("R")) { // remove an employee

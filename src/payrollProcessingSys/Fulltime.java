@@ -39,7 +39,7 @@ public class Fulltime extends Employee {
 	*/
 	public String getAnnSalary() {
 		String yearlySal = "";
-		return yearlySal = new DecimalFormat("$###,###.##").format(annualSalary);
+		return yearlySal = new DecimalFormat("$###,###.00").format(annualSalary);
 	}
 	
 	/**

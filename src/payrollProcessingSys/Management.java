@@ -47,7 +47,7 @@ public class Management extends Fulltime {
 	*/
 	public String getTheBonus() {
 		String theBonus = "";
-		return theBonus = new DecimalFormat("$##,###.##").format(bonus);
+		return theBonus = new DecimalFormat("$##,###.00").format(bonus);
 	}
 	
 	/**
