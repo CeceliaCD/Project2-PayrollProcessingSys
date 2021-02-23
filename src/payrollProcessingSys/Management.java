@@ -24,7 +24,7 @@ public class Management extends Fulltime {
 	/**
 	The parameterized constructor that specifies what specific attributes a fulltime
 	employee with a managerial role must have.
-	@param profile consisting of employee's name, department and date of hire, along with what they're paid each period, annual salary and managerial role
+	@param profile consisting of employee's name, department and date of hire, along with what they're paid each period, annual salary, and managerial role
 	*/
 	public Management(Profile eProfile, double thePay, double annSalary, int theRole, double theBonus) {
 		// TODO Auto-generated constructor stub
@@ -75,7 +75,7 @@ public class Management extends Fulltime {
 	}
 	
 	/** 
-	According to the given role number, calculates the earning for the pay period
+	According to the given role number, calculates the earnings for the pay period.
 	*/
 	@Override
 	public void calculatePayment() { 
@@ -115,7 +115,9 @@ public class Management extends Fulltime {
 	}
 	
 	/**
-	@return
+	Gives the specified employee object, in this case employees of managerial status,
+	an ouptut of their information and finances within the company.
+	@return string value of their profile information, their managerial status, and how much they get each period in additional compensation
 	*/
 	@Override
 	public String toString() { 
@@ -131,8 +133,10 @@ public class Management extends Fulltime {
 	}
 	
 	/**
-	@param
-	@return
+	Compares another object to the current employee object of type management
+	and checks if the object is also of the employee of type management.
+	@param object that is to be compared to our management object
+	@return true if they are the same object, false otherwise
 	*/
 	@Override
 	public boolean equals(Object obj) {

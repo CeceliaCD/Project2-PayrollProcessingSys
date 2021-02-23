@@ -3,15 +3,21 @@ package payrollProcessingSys;
 import java.text.DecimalFormat;
 
 /**
+The fulltime class is a subclass of the employee superclass.
+It defines the specific attributes of a fulltime employee, such
+as their annual salary, and also calculates their pay for the 
+current period.
 @author Ceceliachollette-Dickson, Nidaansari
 */
 public class Fulltime extends Employee {
 	
-	private int fulltimepayperiods = 26;
+	private int fulltimepayperiods = 26; //there is 26 pay periods in a year
 	private double annualSalary;
 	
 	/**
-	@param
+	The parameterized constructor that specifies what specific attributes a fulltime
+	employee must have.
+	@param profile consisting of employee's name, department and date of hire, along with what they're paid each period, and annual salary 
 	*/
 	public Fulltime(Profile eProfile, double thePay, double annSalary) {
 		// TODO Auto-generated constructor stub
@@ -20,14 +26,16 @@ public class Fulltime extends Employee {
 	}
 	
 	/**
-	@return
+	Getter method that receives the inputted annual salary of an employee.
+	@return the double representation of an employees annual salary
 	*/
 	public double getAnnualSalary() {
 		return annualSalary;
 	}
 	
 	/**
-	@return
+	Getter method that receive the annual salary in decimal format.
+	@return the string value of the annual salary
 	*/
 	public String getAnnSalary() {
 		String yearlySal = "";
@@ -35,21 +43,24 @@ public class Fulltime extends Employee {
 	}
 	
 	/**
-	@return 
+	Getter method that receive the integer value that represents all 26 pay periods.
+	@return the integer value that represents all pay periods in a year
 	*/
 	public int getFTPayPeriods() {
 		return fulltimepayperiods;
 	}
 	
 	/**
-	@param
+	Setter method that assigns a fulltime employee an annual salary.
+	@param the double value of the employee's annual salary
 	*/
 	public void setAnnualSalary(double annSal) {
 		this.annualSalary = annSal;
 	}
 	
 	/**
-	 
+	According to the type of employee, fulltime in this case, calculates 
+	the earnings for the pay period. 
 	*/
 	@Override
 	public void calculatePayment() {
@@ -58,7 +69,9 @@ public class Fulltime extends Employee {
 	}
 	
 	/**
-	@return 
+	Gives the specified employee object, in this case fulltime employees,
+	an ouptut of their information and finances within the company.
+	@return string value of their profile information, and their annual salary
 	*/
 	@Override
 	public String toString() {
@@ -66,8 +79,10 @@ public class Fulltime extends Employee {
 	}
 	
 	/**
-	@param
-	@return
+	Compares another object to the current employee object of type fulltime
+	and checks if the object is also of the employee of type fulltime.
+	@param object that is to be compared to our fulltime object
+	@return true if they are the same object, false otherwise
 	*/
 	@Override
 	public boolean equals(Object obj) {

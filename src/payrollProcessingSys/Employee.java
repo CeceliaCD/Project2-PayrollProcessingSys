@@ -3,6 +3,12 @@ package payrollProcessingSys;
 import java.text.DecimalFormat;
 
 /**
+The employee class is the superclass of every class
+that describes a different kind of employee. When an
+object of type employee is made and the specifications
+are set, whatever commands are called will invoke the
+inherited attributes of that method at which matches the
+actions that the command expects.
 @author Ceceliachollette-Dickson, Nidaansari
 */
 public class Employee {
@@ -11,8 +17,8 @@ public class Employee {
 	private double paid;
 	
 	/**
-	This constructor helps intialize employee objects
-	@param
+	This constructor helps intialize employee objects.
+	@param the profile and the salary paid this period for the employee
 	*/
 	public Employee(Profile eProfile, double paidSalary) {
 		// TODO Auto-generated constructor stub
@@ -21,21 +27,27 @@ public class Employee {
 	}
 	
 	/**
-	@return
+	Getter method that gets the profile object that contains the 
+	employees name, department, and date hired.
+	@return the object of type profile
 	*/
 	public Profile getempProfile() {
 		return empProfile;
 	}
 	
 	/**
-	@return
+	Getter method that gets the final calculated payment of an 
+	employee for this period.
+	@return the double value of the final calculation of this period's payment
 	*/
 	public double getPaid() {
 		return paid;
 	}
 	
 	/**
-	@return
+	Getter method that gets the final calculated payment of an 
+	employee in decimal format in dollar currency.
+	@return the string of the final calculated payment in decimal format
 	*/
 	public String getDollarValue() {
 		String dollarValue = "";
@@ -43,22 +55,26 @@ public class Employee {
 	}
 	
 	/**
-	@param 
+	Setter method that sets the payment that was received by the employee
+	this pay period.
+	@param the double of the final calculation of this period's payment
 	*/
 	public void setPaid(double paid) {
 		this.paid = paid;
 	}
 	
 	/**
-	 
+	According to the type of employee, calculates the earnings for the pay period. 
 	*/
 	@Override
 	public void calculatePayment() {
-		paid = 0.0;
+		getPaid();
 	}
 	
 	/**
-	@return  
+	Gives the specified employee object an ouptut of 
+	their information and finances within the company.
+	@return string value of their profile information and the dollar value of their payment
 	*/
 	@Override
 	public String toString() { 
@@ -66,8 +82,10 @@ public class Employee {
 	}
 	
 	/**
-	@param
-	@return
+	Compares another object to the current employee object and
+	checks if the object is also that employee.
+	@param object that is to be compared to our employee object
+	@return true if they are the same object, false otherwise
 	*/
 	@Override
 	public boolean equals(Object obj) {

@@ -1,6 +1,10 @@
 package payrollProcessingSys;
 
 /**
+The profile class defines and designs the personal
+information of an employee such as getting and setting
+up their name, department at which they work in, and 
+when the company hired them.
 @author Ceceliachollette-Dickson, Nidaansari
 */
 public class Profile {
@@ -9,49 +13,60 @@ public class Profile {
 	private Date dateHired;
 	
 	/**
-	@return 
+	Getter method to obtain an employee's name.
+	@return the string value of the employee's name
 	*/
 	public String getName() { 
 		return name;
 	}
 	
 	/**
-	@return 
+	Getter method to obtain the department an employee works in.
+	@return the string value of which department of the company the employee works in
 	*/
 	public String getDept() { 
 		return department;
 	}
 	
 	/**
-	@return
+	Getter method to obtain an employee's hire date.
+	@return the Date object of the time the employee was hired
 	*/
 	public Date getDateHired() { 
 		return dateHired;
 	}
 	
 	/**
-	@param
+	Setter method to fill in the name of the employee in
+	the profile object.
+	@param string name to be given to employee's profile
 	*/
 	public void setName(String empName) {
 		this.name = empName;
 	}
 	
 	/**
-	@param
+	Setter method to fill in the department of the company
+	that the employee works in for the profile object.
+	@param string department to be given to employee's profile
 	*/
 	public void setDept(String dept) {
 		this.department = dept;
 	}
 	
 	/**
-	@param 
+	Setter method to fill in the date when the 
+	employee was hired.
+	@param date object to be given to employee's profile
 	*/
 	public void setDateHired(Date hired) {
 		this.dateHired = hired;
 	}
 	
 	/**
-	@return 
+	Gives the specified profile an ouptut of name, department,
+	and date hired for an employee that joined a company.
+	@return string value of their profile information
 	*/
 	@Override
 	public String toString() { 
@@ -59,10 +74,11 @@ public class Profile {
 	}
 	
 	/**
-	@param
-	@return 
+	Compares another object to the current profile object checks 
+	if the object is also the same profile.
+	@param object that is to be compared to our profile object
+	@return true if they are the same object, false otherwise
 	*/
-	// DOUBLE CHECK THIS @ NIDA
 	@Override
 	public boolean equals(Object obj) { //compare name, department and dateHired
 		if (this == obj) {
