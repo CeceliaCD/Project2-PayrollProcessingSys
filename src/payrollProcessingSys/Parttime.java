@@ -19,7 +19,10 @@ public class Parttime extends Employee {
 	/**
 	The parameterized constructor that specifies what specific attributes a parttime
 	employee must have.
-	@param profile consisting of employee's name, department and date of hire, along with what they're paid each period, hourly rate, and hours worked
+	@param eProfile is profile consisting of employee's name, department and date of hire
+	@param paidSalary is what an employee is paid each period
+	@param hrlyrate is an employee's hourly rate
+	@param hrsWorked is how many hours an employee worked
 	*/
 	public Parttime(Profile eProfile, double paidSalary, double hrlyrate, int hrsWorked) {
 		// TODO Auto-generated constructor stub
@@ -58,7 +61,7 @@ public class Parttime extends Employee {
 	
 	/**
 	Setter method to give the rate at which employees are paid per hour.
-	@param the double representation of the rate the employee is paid
+	@param rate is the double representation of the rate the employee is paid
 	*/
 	public void setHourlyRate(double rate) {
 		this.hourlyRate = rate;
@@ -66,7 +69,7 @@ public class Parttime extends Employee {
 	
 	/**
 	Setter method to give the hours that the employee worked that period.
-	@param the integer value that shows how many hours were worked
+	@param hours is the integer value that shows how many hours were worked
 	*/
 	public void setHoursWorked(int hours) {
 		this.hoursWorked = hours;
@@ -105,7 +108,7 @@ public class Parttime extends Employee {
 	/**
 	Compares another object to the current employee object of type parttime
 	and checks if the object is also of the employee of type parttime.
-	@param object that is to be compared to our parttime object
+	@param obj of type object that is to be compared to our parttime object
 	@return true if they are the same object, false otherwise
 	*/
 	@Override
