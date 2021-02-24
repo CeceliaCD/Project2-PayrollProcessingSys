@@ -112,28 +112,54 @@ public class CompanyTest {
 		assertTrue(comp.remove(parttimer)); // #2 case: removing a parttime employee
 		
 		Profile prof2 = new Profile();
-		prof.setName("Styles,Harry");
-		prof.setDept("ECE");
+		prof2.setName("Styles,Harry");
+		prof2.setDept("ECE");
 		Date hired2 = new Date("2/1/2017");
-		prof.setDateHired(hired2);
+		prof2.setDateHired(hired2);
 		double SALARY = 75000.00;
-		Fulltime fulltimer = new Fulltime(prof, 0, 0); 
+		Fulltime fulltimer = new Fulltime(prof2, 0, 0); 
 		fulltimer.setAnnualSalary(SALARY);
 		assertTrue(comp.add(fulltimer));
 		assertTrue(comp.remove(fulltimer)); // #3 case: removing a fulltime employee
 		
 		Profile prof3 = new Profile();
-		prof.setName("Smith,Bob");
-		prof.setDept("IT");
+		prof3.setName("Smith,Bob");
+		prof3.setDept("IT");
 		Date hired3 = new Date("10/15/2012");
-		prof.setDateHired(hired3);
+		prof3.setDateHired(hired3);
 		double SALARY1 = 67000.00;
 		int ROLE = 1;
-		Management mngr = new Management(prof, 0, 0, 0); 
+		Management mngr = new Management(prof3, 0, 0, 0); 
 		mngr.setAnnualSalary(SALARY1);
 		mngr.setRole(ROLE);
 		assertTrue(comp.add(mngr));
-		assertTrue(comp.remove(mngr)); // #4 case: removing an employee with a management role
+		assertTrue(comp.remove(mngr)); // #4 case: removing an employee with a management (manager) role
+		
+		Profile prof4 = new Profile();
+		prof4.setName("Obama,Michelle");
+		prof4.setDept("CS");
+		Date hired4 = new Date("11/25/2015");
+		prof4.setDateHired(hired4);
+		double SALARY2 = 52700.00;
+		int ROLE2 = 2;
+		Management mngr2 = new Management(prof4, 0, 0, 0); 
+		mngr2.setAnnualSalary(SALARY2);
+		mngr2.setRole(ROLE2);
+		assertTrue(comp.add(mngr2));
+		assertTrue(comp.remove(mngr2)); // #4 case: removing an employee with a management (department head) role
+		
+		Profile prof5 = new Profile();
+		prof5.setName("Obama,Barack");
+		prof5.setDept("ECE");
+		Date hired5 = new Date("4/8/2016");
+		prof5.setDateHired(hired5);
+		double SALARY3 = 94600.00;
+		int ROLE3 = 3;
+		Management mngr3 = new Management(prof5, 0, 0, 0); 
+		mngr3.setAnnualSalary(SALARY3);
+		mngr3.setRole(ROLE3);
+		assertTrue(comp.add(mngr3));
+		assertTrue(comp.remove(mngr3)); // #4 case: removing an employee with a management (director) role
 	}
 
 	/**
@@ -161,13 +187,40 @@ public class CompanyTest {
 		prof2.setDept("IT");
 		Date hired2 = new Date("5/23/2010");
 		prof2.setDateHired(hired2);
-		double HOURLY_RATE2 = 56.00;
+		double HOURLY_RATE2 = 42.00;
 		int HOURS_WORKED2 = 100;
-		Parttime parttimer2 = new Parttime(prof2, 0, HOURLY_RATE2, 0);
-		parttimer.setHoursWorked(HOURS_WORKED2);
+		Parttime parttimer2 = new Parttime(prof2, 0, 0, 0);
+		parttimer2.setHourlyRate(HOURLY_RATE2);
+		parttimer2.setHoursWorked(HOURS_WORKED2);
 		assertTrue(comp.add(parttimer2));
 		assertTrue(comp.setHours(parttimer2)); // #2 case: setting the hours of a parttime employee that does exist
 		// fail("Not yet implemented");
+		
+		Profile prof3 = new Profile();
+		prof3.setName("Shaffer,Polly");
+		prof3.setDept("CS");
+		Date hired3 = new Date("8/1/2000");
+		prof3.setDateHired(hired3);
+		double HOURLY_RATE3 = 89.00;
+		int HOURS_WORKED3 = -40;
+		Parttime parttimer3 = new Parttime(prof3, 0, 0, 0);
+		parttimer3.setHourlyRate(HOURLY_RATE3);
+		parttimer3.setHoursWorked(HOURS_WORKED3);
+		assertTrue(comp.add(parttimer3));
+		assertFalse(comp.setHours(parttimer3)); // #3 case: setting the hours of a parttime employee to be negative
+		
+		Profile prof4 = new Profile();
+		prof4.setName("Shaffer,Polly");
+		prof4.setDept("ECE");
+		Date hired4 = new Date("3/12/2004");
+		prof4.setDateHired(hired4);
+		double HOURLY_RATE4 = 65.50;
+		int HOURS_WORKED4 = 102;
+		Parttime parttimer4 = new Parttime(prof4, 0, 0, 0);
+		parttimer4.setHourlyRate(HOURLY_RATE4);
+		parttimer4.setHoursWorked(HOURS_WORKED4);
+		assertTrue(comp.add(parttimer4));
+		assertFalse(comp.setHours(parttimer4)); // #3 case: setting the hours of a parttime employee to be over 100
 	}
 
 }
