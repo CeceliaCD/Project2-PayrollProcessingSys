@@ -22,7 +22,7 @@ public class Company {
 	/**
 	A helper method used within the public methods in 
 	this class to find the index of a requested employee.
-	@param the employee object being searched for
+	@param employee object is being searched for
 	@return the integer value representing the index at which the employee is located
 	*/
 	private int find(Employee employee) {
@@ -55,7 +55,7 @@ public class Company {
 	/**
 	This method adds employees to our employee array. It calls
 	both the grow() and find() helper methods.
-	@param the employee object being added
+	@param employee object being added
 	@return true if the employee was added to the array, false otherwise
 	*/
 	public boolean add(Employee employee) { // need to determine if employee is PT FT or M
@@ -76,7 +76,7 @@ public class Company {
 	This method deletes a given employee from the array.
 	It calls the find() helper method to make it easier 
 	to find the index of the meployee that needs to be removed.
-	@param the employee object being removed
+	@param employee object being removed
 	@return true if the employee has been removed, false otherwise
 	*/
 	public boolean remove(Employee employee) { // might have to change
@@ -97,7 +97,7 @@ public class Company {
 	during the pay period. Necessary to call before the periods 
 	payments are calculated, otherwise some parttimers are going
 	home with no money.
-	@param the employee that is also of type parttime
+	@param employee object that is also of type parttime
 	@return true if the employee's hours for this period has been set, false otherwise
 	*/
 	public boolean setHours(Employee employee) { // set working hours for a part time
