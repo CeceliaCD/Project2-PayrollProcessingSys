@@ -24,7 +24,10 @@ public class Management extends Fulltime {
 	/**
 	The parameterized constructor that specifies what specific attributes a fulltime
 	employee with a managerial role must have.
-	@param profile consisting of employee's name, department and date of hire, along with what they're paid each period, annual salary, and managerial role
+	@param eProfile is the profile consisting of employee's name, department and date of hire
+	@param thePay is what an employee is paid each period
+	@param annSalary is an employee's annual salary
+	@param theRole is an employee's managerial role
 	*/
 	public Management(Profile eProfile, double thePay, double annSalary, int theRole) {
 		// TODO Auto-generated constructor stub
@@ -71,7 +74,7 @@ public class Management extends Fulltime {
 	
 	/**
 	Setter method to set the role for an employee entering the company.
-	@param the integer value of the role that will be given to an employee of managerial status
+	@param theRole is the integer value of the role that will be given to an employee of managerial status
 	*/
 	public void setRole(int theRole) {
 		this.role = theRole;
@@ -127,7 +130,7 @@ public class Management extends Fulltime {
 	/**
 	Compares another object to the current employee object of type management
 	and checks if the object is also of the employee of type management.
-	@param object that is to be compared to our management object
+	@param obj of type object that is to be compared to our management object
 	@return true if they are the same object, false otherwise
 	*/
 	@Override
