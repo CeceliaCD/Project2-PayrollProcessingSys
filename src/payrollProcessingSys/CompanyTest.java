@@ -78,7 +78,7 @@ public class CompanyTest {
 		Management manageRole1 = new Management(prof4, 0, 0, 0);
 		manageRole1.setAnnualSalary(SALARY3);
 		manageRole1.setRole(MANAGER_ROLE);
-		assertTrue(comp.add(manageRole1)); // #5 should be true (added in) because the grow() helper she allocate more
+		assertTrue(comp.add(manageRole1)); // #5 should be true (added in) because the grow() helper should allocate more
 											// space in array
 
 		Employee testerEmp = new Employee(prof, 1);
