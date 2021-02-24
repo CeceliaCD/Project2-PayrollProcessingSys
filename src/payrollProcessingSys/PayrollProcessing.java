@@ -165,7 +165,9 @@ public class PayrollProcessing {
 	/**
 	Setter method that sets the the attributes of a profile object
 	for an employee.
-	@param the string name, department and date that an employee was hired
+	@param name is the name of employee
+	@param dept is the employee's department 
+	@param dateHired is the date that an employee was hired
 	@return profile object
 	*/
 	public Profile setProfile(String name, String dept, Date dateHired) {
@@ -179,7 +181,8 @@ public class PayrollProcessing {
 	/**
 	Checks if the date and department name are valid dates and
 	existing departments.
-	@param the date object given and string name of their department
+	@param date is the date given
+	@param dept is a string name of their department
 	@return true if they are valid, false otherwise
 	*/
 	public boolean checkValid(Date date, String dept) {
