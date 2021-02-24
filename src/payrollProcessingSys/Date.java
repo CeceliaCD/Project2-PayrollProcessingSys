@@ -77,7 +77,7 @@ public class Date implements Comparable<Date> {
 	A helper method used to make it easier to discern if a year
 	is a leap year, which means an extra day for February,
 	or not.
-	@param an integer that represents the date's year
+	@param year of type integer that represents the date's year
 	@return boolean true if the year is a leap year, false otherwise
 	*/
 	private boolean isLeapYear(int year) {
