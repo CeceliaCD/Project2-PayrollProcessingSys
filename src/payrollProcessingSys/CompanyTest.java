@@ -157,16 +157,16 @@ public class CompanyTest {
 		assertFalse(comp.setHours(parttimer)); // #1 case: setting the hours of a parttime employee that does not exist
 		
 		Profile prof2 = new Profile();
-		prof.setName("Schmoe,Joe");
-		prof.setDept("IT");
+		prof2.setName("Schmoe,Joe");
+		prof2.setDept("IT");
 		Date hired2 = new Date("5/23/2010");
-		prof.setDateHired(hired2);
-		double HOURLY_RATE2 = 42.00;
+		prof2.setDateHired(hired2);
+		double HOURLY_RATE2 = 56.00;
 		int HOURS_WORKED2 = 100;
-		Parttime parttimer2 = new Parttime(prof, 0, 56.00, 0);
-		parttimer.setHoursWorked(100);
+		Parttime parttimer2 = new Parttime(prof2, 0, HOURLY_RATE2, 0);
+		parttimer.setHoursWorked(HOURS_WORKED2);
 		assertTrue(comp.add(parttimer2));
-		assertTrue(comp.setHours(parttimer)); // #2 case: setting the hours of a parttime employee that does exist
+		assertTrue(comp.setHours(parttimer2)); // #2 case: setting the hours of a parttime employee that does exist
 		// fail("Not yet implemented");
 	}
 
