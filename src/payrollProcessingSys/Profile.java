@@ -39,7 +39,7 @@ public class Profile {
 	/**
 	Setter method to fill in the name of the employee in
 	the profile object.
-	@param string name to be given to employee's profile
+	@param empName of type string is the name to be given to employee's profile
 	*/
 	public void setName(String empName) {
 		this.name = empName;
@@ -48,7 +48,7 @@ public class Profile {
 	/**
 	Setter method to fill in the department of the company
 	that the employee works in for the profile object.
-	@param string department to be given to employee's profile
+	@param dept of type string is the department to be given to employee's profile
 	*/
 	public void setDept(String dept) {
 		this.department = dept;
@@ -57,7 +57,7 @@ public class Profile {
 	/**
 	Setter method to fill in the date when the 
 	employee was hired.
-	@param date object to be given to employee's profile
+	@param hired is the date to be given to employee's profile
 	*/
 	public void setDateHired(Date hired) {
 		this.dateHired = hired;
@@ -76,7 +76,7 @@ public class Profile {
 	/**
 	Compares another object to the current profile object checks 
 	if the object is also the same profile.
-	@param object that is to be compared to our profile object
+	@param obj of type object that is to be compared to our profile object
 	@return true if they are the same object, false otherwise
 	*/
 	@Override
