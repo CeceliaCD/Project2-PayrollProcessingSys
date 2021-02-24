@@ -17,7 +17,9 @@ public class Fulltime extends Employee {
 	/**
 	The parameterized constructor that specifies what specific attributes a fulltime
 	employee must have.
-	@param profile consisting of employee's name, department and date of hire, along with what they're paid each period, and annual salary 
+	@param eProfile is profile consisting of employee's name, department and date of hire
+	@param thePay is what they're paid each period
+	@param annSalary is employee's annual salary 
 	*/
 	public Fulltime(Profile eProfile, double thePay, double annSalary) {
 		// TODO Auto-generated constructor stub
@@ -52,7 +54,7 @@ public class Fulltime extends Employee {
 	
 	/**
 	Setter method that assigns a fulltime employee an annual salary.
-	@param the double value of the employee's annual salary
+	@param annSal of double type is the value of the employee's annual salary
 	*/
 	public void setAnnualSalary(double annSal) {
 		this.annualSalary = annSal;
@@ -82,7 +84,7 @@ public class Fulltime extends Employee {
 	/**
 	Compares another object to the current employee object of type fulltime
 	and checks if the object is also of the employee of type fulltime.
-	@param object that is to be compared to our fulltime object
+	@param obj of type object that is to be compared to our fulltime object
 	@return true if they are the same object, false otherwise
 	*/
 	@Override
