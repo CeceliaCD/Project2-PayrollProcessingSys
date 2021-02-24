@@ -18,7 +18,8 @@ public class Employee {
 	
 	/**
 	This constructor helps intialize employee objects.
-	@param the profile and the salary paid this period for the employee
+	@param eProfile the profile of an employee which has their name, department, and date hired
+	@param paidSalary is the salary paid this period for the employee
 	*/
 	public Employee(Profile eProfile, double paidSalary) {
 		// TODO Auto-generated constructor stub
@@ -57,7 +58,7 @@ public class Employee {
 	/**
 	Setter method that sets the profile object that contains the 
 	employees name, department, and date hired.
-	@param the object of type profile
+	@param emp of type profile
 	*/
 	public void setempProfile(Profile emp) {
 		this.empProfile = emp;
@@ -66,7 +67,7 @@ public class Employee {
 	/**
 	Setter method that sets the payment that was received by the employee
 	this pay period.
-	@param the double of the final calculation of this period's payment
+	@param paid of type double of the final calculation of this period's payment
 	*/
 	public void setPaid(double paid) {
 		this.paid = paid;
@@ -92,7 +93,7 @@ public class Employee {
 	/**
 	Compares another object to the current employee object and
 	checks if the object is also that employee.
-	@param object that is to be compared to our employee object
+	@param obj of type object that is to be compared to our employee object
 	@return true if they are the same object, false otherwise
 	*/
 	@Override
